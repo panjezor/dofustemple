@@ -1,0 +1,65 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-left">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">Dashboard</div>
+
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
+                        You are logged in!
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-right">
+
+                <div class="col-md-11">
+                    <div class="card">
+                        <div class="card-header">Almanax</div>
+
+                        <div class="card-body">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Offering</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($almanaxes as $almanax)
+                                        <tr>
+                                            <td>{{$almanax->needed_by}}</td>
+                                            <td>{{$almanax->offering}}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Offering</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ asset('js/datatables.min.js') }}" defer></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.min.css') }}"/>
+
+    <script>
+        $().ready(function () {
+            $('table').DataTable();
+        });</script>
+
+@endsection
