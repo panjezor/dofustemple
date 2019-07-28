@@ -28,6 +28,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'HomeController@index')->name('home');
 
 
+    Route::get('/monsters', 'MonsterController@input');
+    Route::post('/monsters/add', 'MonsterController@addmob');
+    Route::get('/monsters/arch', 'MonsterController@showArch');
+    Route::get('/monsters/collection', 'MonsterController@showAll');
+    Route::get('/monsters/collection/add', 'MonsterController@add');
+    Route::get('/monsters/collection/subtract', 'MonsterController@subtract');
 });
 
 

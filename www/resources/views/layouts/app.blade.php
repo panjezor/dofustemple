@@ -11,25 +11,46 @@
             <title>{{ $title }}</title>
         @else
             <title>{{ config('app.name', 'Laravel') }}</title>
-    @endif
-    <!-- Scripts -->
+        @endif
+
+    <!-- Scripts and styling-->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        @include('helperviews.datatables')
 
 
-        <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-        <!-- Styles -->
+
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <style>
             .navbar {
                 background-color: darkgreen;
             }
+
             .py-4 {
                 background-color: #2a9055;
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+
+            }
+
+            li a {
+                display: block;
+                color: #000;
+                padding: 8px 16px;
+                text-decoration: none;
+            }
+
+            /* Change the link color on hover */
+            li a:hover {
+                background-color: #595;
+                color: white;
             }
         </style>
 
@@ -52,18 +73,17 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-<li>daily quest reminder z checkboxami - 3 w koalaku, almanax, keruby, </li>
+                            <li><a href="/daily">daily quest reminder z checkboxami - 3 w koalaku, almanax, keruby</a></li>
                             <li>
-                                pomoc do ochre - lista souli ktore mamy (ilosc kazdego) - moby, duny i archy
+                                <a href="/soule">pomoc do ochre - lista souli ktore mamy (ilosc kazdego) - moby, duny i archy</a>
                             </li>
                             <li>
-                                dashboard do eventow + bonusy z almanaxa
+                                <a href="/events">dashboard do eventow + bonusy z almanaxa</a>
                             </li>
                             <li>
-                                portale
+                                <a href="#">portale do zrobienia na dashboardzie</a>
                             </li>
-                            <li>zbior przydatnych linkow - dofuspourlesnoobs, treasure hunt, dofuswiki</li>
-                            <li>wprowadzanie souli</li>
+                            <li><a href="/links">zbior przydatnych linkow - dofuspourlesnoobs, treasure hunt, dofuswiki</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
