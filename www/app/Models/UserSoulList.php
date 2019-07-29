@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserList extends Model
+class UserSoulList extends Model
 {
     //
 }

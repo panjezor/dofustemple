@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MonsterList extends Model
+class SoulList extends Model
 {
     //
 }

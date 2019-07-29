@@ -2,28 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb422f2-3167-4ae5-9aa5-cb9baae119de" name="Default Changelist" comment="v0.1.0">
+      <change afterPath="$PROJECT_DIR$/var/lib/mysql/app_database/lists.frm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/var/lib/mysql/app_database/lists.ibd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/var/lib/mysql/app_database/soul_ownerships.frm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/var/lib/mysql/app_database/soul_ownerships.ibd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/var/lib/mysql/app_database/souls.frm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/var/lib/mysql/app_database/souls.ibd" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/var/lib/mysql/app_database/user_lists.frm" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/var/lib/mysql/app_database/user_lists.ibd" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/var/lib/mysql/ibtmp1" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/var/log/apache2/access.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/var/log/apache2/other_vhosts_access.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/app/Models/MonsterList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/app/Models/UserList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9173f5d4-5b09-415a-926c-11a4b5f3636e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9173f5d4-5b09-415a-926c-11a4b5f3636e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/lib/mysql/app_database/monster_ownerships.frm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/lib/mysql/app_database/monster_ownerships.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/var/lib/mysql/app_database/monster_ownerships.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/lib/mysql/app_database/monster_ownerships.ibd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/lib/mysql/app_database/monsters.frm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/lib/mysql/app_database/monsters.ibd" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/var/lib/mysql/app_database/users.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/var/lib/mysql/app_database/users.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/lib/mysql/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/var/lib/mysql/ib_logfile0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/lib/mysql/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/var/lib/mysql/ibdata1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/lib/mysql/mysql/innodb_index_stats.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/var/lib/mysql/mysql/innodb_index_stats.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/lib/mysql/mysql/innodb_table_stats.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/var/lib/mysql/mysql/innodb_table_stats.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/apache2/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/apache2/error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/www/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Models/Monster.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Models/Monster.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Models/MonsterOwnership.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Models/MonsterOwnership.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Http/Controllers/MonsterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Http/Controllers/SoulController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Models/Monster.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Models/Soul.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Models/MonsterList.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Models/UserSoulList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Models/MonsterOwnership.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Models/SoulOwnership.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Models/UserList.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Models/SoulList.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,13 +81,6 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="app_database: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="souls: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="app_database@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="app_database: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="user_lists: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -334,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564427672596</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="v0.1.0">
+      <created>1564441570167</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1564441570167</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

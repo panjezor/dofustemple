@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
-class Monster extends Model
+class Soul extends Model
 {
 
     /*
@@ -13,9 +13,9 @@ class Monster extends Model
      * 0 = normal
      * 1 = arch
      * 2 = boss
-     * monsters with no arch will have a type but no associate
+     * souls with no arch will have a type but no associate
      */
-    protected $fillable = ['monster_name', 'type', 'associate'];
+    protected $fillable = ['soul_name', 'type', 'associate'];
     public $timestamps = false;
 
 
@@ -48,17 +48,17 @@ class Monster extends Model
 
     public static function allNormals()
     {
-        return Monster::where('type', '=', '0');
+        return Soul::where('type', '=', '0');
     }
 
     public static function allArchs()
     {
-        return Monster::where('type', '=', '1')->orderBy('monster_name')->get();
+        return Soul::where('type', '=', '1')->orderBy('soul_name')->get();
     }
 
     public static function allBosses()
     {
-        return Monster::where('type', '=', '2');
+        return Soul::where('type', '=', '2');
     }
 
     public function getType()
@@ -68,7 +68,7 @@ class Monster extends Model
                 return 'Normal';
                 break;
             case '1':
-                return 'Archmonster';
+                return 'Archsoul';
                 break;
             case '2':
                 return 'Boss';
@@ -79,9 +79,9 @@ class Monster extends Model
     public function otherName($int)
     {
         if ($this->associate !== null) {
-            $monsters = Monster::find($this->associate);
+            $souls = Soul::find($this->associate);
 
-            return $monsters->monster_name;
+            return $souls->soul_name;
         } else {
             return 'no name';
         }
@@ -89,7 +89,7 @@ class Monster extends Model
 
     public function amountInList()
     {
-            return MonsterOwnership::where('list_id', $this->id)->where('monster_id', $this_id)->count();
+            return SoulOwnership::where('list_id', $this->id)->where('soul_id', $this_id)->count();
     }
 
 
