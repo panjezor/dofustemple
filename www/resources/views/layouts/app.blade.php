@@ -75,7 +75,7 @@
                         <ul class="navbar-nav mr-auto">
                             <li><a href="/daily">daily quest reminder z checkboxami - 3 w koalaku, almanax, keruby</a></li>
                             <li>
-                                <a href="/soule">pomoc do ochre - lista souli ktore mamy (ilosc kazdego) - moby, duny i archy</a>
+                                <a href="/monsters/collection">pomoc do ochre - lista souli ktore mamy (ilosc kazdego) - moby, duny i archy</a>
                             </li>
                             <li>
                                 <a href="/events">dashboard do eventow + bonusy z almanaxa</a>

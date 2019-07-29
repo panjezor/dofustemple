@@ -87,13 +87,9 @@ class Monster extends Model
         }
     }
 
-    public function amountOwnedBy(User $user = null)
+    public function amountInList()
     {
-        if ($user) {
-            return MonsterOwnership::where('user_id', $user->id)->where('monster_id', $this->id)->count();
-        } else {
-            return MonsterOwnership::where('user_id', 1)->where('monster_id', $this->id)->count();
-        }
+            return MonsterOwnership::where('list_id', $this->id)->where('monster_id', $this_id)->count();
     }
 
 
