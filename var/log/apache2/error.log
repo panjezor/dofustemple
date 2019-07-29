@@ -125,3 +125,4 @@ PHP Warning:  Module 'mbstring' already loaded in Unknown on line 0
 PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
 [Sun Jul 28 11:10:07.308487 2019] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.2.19 OpenSSL/1.0.2r configured -- resuming normal operations
 [Sun Jul 28 11:10:07.308913 2019] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Jul 29 18:28:27.187613 2019] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down

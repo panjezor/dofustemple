@@ -1185,7 +1185,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="229" name="name">
+    <column id="308" parent="229" name="monster_name">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1197,13 +1197,13 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="229" name="parent">
+    <column id="310" parent="229" name="associate">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="311" parent="229" name="monsters_name_uindex">
-      <ColNames>name</ColNames>
+      <ColNames>monster_name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
@@ -1213,7 +1213,7 @@
       <Primary>1</Primary>
     </key>
     <key id="313" parent="229" name="monsters_name_uindex">
-      <ColNames>name</ColNames>
+      <ColNames>monster_name</ColNames>
       <UnderlyingIndexName>monsters_name_uindex</UnderlyingIndexName>
     </key>
     <column id="314" parent="230" name="email">
