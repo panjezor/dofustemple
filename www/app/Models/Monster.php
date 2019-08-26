@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
-class Soul extends Model
+class Monster extends Model
 {
 
     /*
@@ -15,7 +15,8 @@ class Soul extends Model
      * 2 = boss
      * souls with no arch will have a type but no associate
      */
-    protected $fillable = ['soul_name', 'type', 'associate'];
+    protected $guarded = [];
+
     public $timestamps = false;
 
 
@@ -48,17 +49,17 @@ class Soul extends Model
 
     public static function allNormals()
     {
-        return Soul::where('type', '=', '0');
+        return Monster::where('type', '=', '0');
     }
 
     public static function allArchs()
     {
-        return Soul::where('type', '=', '1')->orderBy('soul_name')->get();
+        return Monster::where('type', '=', '1')->orderBy('soul_name')->get();
     }
 
     public static function allBosses()
     {
-        return Soul::where('type', '=', '2');
+        return Monster::where('type', '=', '2');
     }
 
     public function getType()
@@ -79,18 +80,12 @@ class Soul extends Model
     public function otherName($int)
     {
         if ($this->associate !== null) {
-            $souls = Soul::find($this->associate);
+            $souls = Monster::find($this->associate);
 
             return $souls->soul_name;
         } else {
             return 'no name';
         }
     }
-
-    public function amountInList()
-    {
-            return SoulOwnership::where('list_id', $this->id)->where('soul_id', $this_id)->count();
-    }
-
 
 }

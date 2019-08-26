@@ -10,16 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Middleware\Authenticate;
+use Illuminate\Support\Facades\Auth;
+
+
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/register', function () {
         return view('auth.register');
     });
-    Route::get('/almanax/list', '\App\Http\Controllers\Tools\AlmanaxController@list');
-    Route::get('/almanax/{date}', '\App\Http\Controllers\Tools\AlmanaxController@show');
-    Route::post('/almanax/add', '\App\Http\Controllers\Tools\AlmanaxController@add');
-
-
     Route::get('/logout', function () {
         Auth::logout();
         return redirect('/');
@@ -27,13 +27,30 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/', 'HomeController@index')->name('home');
 
+    Route::prefix('/almanax')->group(function () {
+        Route::get('/list', 'AlmanaxController@list');
+        Route::get('/{date}', 'AlmanaxController@show');
+        Route::post('/add', 'AlmanaxController@add');
+    });
 
-    Route::get('/monsters', 'MonsterController@input');
-    Route::post('/monsters/add', 'MonsterController@addmob');
-    Route::get('/monsters/arch', 'MonsterController@showArch');
-    Route::get('/monsters/collection', 'MonsterController@showAll');
-    Route::get('/monsters/collection/add', 'MonsterController@add');
-    Route::get('/monsters/collection/subtract', 'MonsterController@subtract');
+    Route::prefix('/monsters')->group(function () {
+        Route::get('', 'MonsterController@input');
+        Route::post('/add', 'MonsterController@addmob');
+        Route::get('/arch', 'MonsterController@showArch');
+
+        Route::prefix('/lists')->group(function () {
+            Route::get('/admin', 'MonsterController@showAllLists');
+            Route::get('/', 'MonsterController@showMyLists');
+
+            Route::prefix('/{list}')->group(function () {
+
+                Route::get('/', 'MonsterController@showList');
+                Route::get('/add', 'MonsterController@add');
+                Route::get('/subtract', 'MonsterController@subtract');
+            });
+        });
+    });
+
 });
 
 

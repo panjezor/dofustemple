@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SoulOwnership extends Model
+class MonsterOwnership extends Model
 {
     //
-    protected $table = 'soul_ownerships';
 
-    protected $fillable = ['soul_id','list_id'];
+    protected $guarded = [];
 
     public $timestamps = false;
 
     public function soul(){
-       return $this->hasOne('App\Models\Soul');
+       return $this->hasOne('App\Models\Monster');
     }
     public function list(){
        return $this->belongsTo('App\Models\List');
