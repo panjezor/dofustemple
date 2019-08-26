@@ -18,4 +18,7 @@ class MonsterList extends Model
     public static function listsForUser(User $user){
         return $user->lists;
     }
+    public function myList(){
+        return $this->hasManyThrough(Monster::class, MonsterOwnership::class,'monster_list_id','id','id','monster_id');
+    }
 }

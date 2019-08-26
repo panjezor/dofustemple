@@ -87,5 +87,7 @@ class Monster extends Model
             return 'no name';
         }
     }
-
+public function amountOwnedBy($list){
+        return MonsterOwnership::where('monster_list_id',$list)->where('monster_id',$this->id)->count();
+}
 }

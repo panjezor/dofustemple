@@ -83,10 +83,9 @@ class MonsterController extends Controller
         return 'false';
     }
 
-    public function showList($list)
+    public function showList(MonsterList $list)
     {
-        $user = Auth::user();
-        return view('monsters.lists', ['lists' => MonsterList::myLists()]);
+        return view('monsters.list', ['list' => $list]);
     }
 
 }

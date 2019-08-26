@@ -18,7 +18,7 @@
                                 <tr>
 
                                     <td>{{$list->id}}</td>
-                                    <td><a href="/monsters/list/{{$list->id}}">{{ucfirst(strtolower($list->name))}}</a>
+                                    <td><a href="/monsters/lists/{{$list->id}}">{{ucfirst(strtolower($list->name))}}</a>
                                     </td>
 
                                     <td>@foreach($list->users as $user)
