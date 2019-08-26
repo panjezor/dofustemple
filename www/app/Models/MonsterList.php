@@ -14,7 +14,8 @@ class MonsterList extends Model
     {
         return $this->belongsToMany(User::class, 'user_lists');
     }
-    public static function allLists(){
-        return MonsterList::all();
+
+    public static function listsForUser(User $user){
+        return $user->lists;
     }
 }

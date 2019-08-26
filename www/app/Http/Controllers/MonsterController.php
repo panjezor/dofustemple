@@ -45,8 +45,7 @@ class MonsterController extends Controller
 
     public function showMyLists()
     {
-        $user = Auth::user();
-        return view('monsters.lists', ['lists' => MonsterList::myLists()]);
+        return view('monsters.lists', ['lists' => MonsterList::listsForUser(Auth::user())]);
     }
 
     public function showAllLists()
@@ -56,7 +55,7 @@ class MonsterController extends Controller
         if ($user->id !== 1 && $user->id !== 2) { // if user is not admin <- needs changing when i get to
             return abort(403);
         }
-        return view('monsters.lists', ['lists' => MonsterList::allLists()]);
+        return view('monsters.lists', ['lists' => MonsterList::all()->get()]);
     }
 
     public function add(Request $request)
@@ -84,7 +83,7 @@ class MonsterController extends Controller
         return 'false';
     }
 
-    public function showList(Request $request, $list)
+    public function showList($list)
     {
         $user = Auth::user();
         return view('monsters.lists', ['lists' => MonsterList::myLists()]);

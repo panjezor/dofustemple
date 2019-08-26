@@ -38,12 +38,12 @@ class User extends Authenticatable
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function lists()
     {
 
-        return $this->hasMany(MonsterList::class, 'user_lists');
+        return $this->belongsToMany(MonsterList::class, 'user_lists');
 
     }
 }
