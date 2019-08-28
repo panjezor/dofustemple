@@ -14,7 +14,9 @@
 use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
 
-
+Route::get('/register', function () {
+    return view('auth.register');
+});
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/register', function () {
@@ -52,6 +54,6 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
 });
-
-
 Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
