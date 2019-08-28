@@ -7,16 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class MonsterOwnership extends Model
 {
     //
-    protected $table = 'monster_ownerships';
 
-    protected $fillable = ['monster_id','user_id'];
+    protected $guarded = [];
 
     public $timestamps = false;
 
-    public function monster(){
-        $this->hasOne('App\Models\Monster')->get();
+    public function soul(){
+       return $this->hasOne('App\Models\Monster');
     }
-    public function user(){
-        $this->belongsTo('App\Models\User')->get();
+    public function list(){
+       return $this->belongsTo('App\Models\List');
     }
 }

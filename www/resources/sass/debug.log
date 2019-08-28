@@ -1,0 +1,5 @@
+[0826/152838.535:ERROR:http_transport_win.cc(170)] WinHttpCrackUrl: The URL does not use a recognized protocol  (0x2ee6)
+[0826/152856.231:ERROR:process_reader_win.cc(242)] ReadMemory at 0xfffff90 of 512 bytes failed: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[0826/152856.232:ERROR:crash_report_exception_handler.cc(116)] WriteEverything failed
+[0826/153339.707:ERROR:http_transport_win.cc(170)] WinHttpCrackUrl: The URL does not use a recognized protocol  (0x2ee6)
+[0826/153433.633:ERROR:http_transport_win.cc(170)] WinHttpCrackUrl: The URL does not use a recognized protocol  (0x2ee6)

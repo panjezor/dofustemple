@@ -14,22 +14,22 @@
                         </thead>
                         <tbody>
 
-                            @foreach($monsters as $monster)
+                            @foreach(App\Models\Monster::all() as $monster)
                                 <tr>
                                     <td>{{$monster->monster_name}}</td>
                                     <input type="hidden" id="monster_id" value="{{$monster->id}}">
                                     <td>{{$monster->getType()}}</td>
                                     <td>
                                         <button type="button"
-                                                onclick="subtractdb('{{$monster->id}}','{{\Illuminate\Support\Facades\Auth::user()->id}}')">
+                                                onclick="subtractMonster('{{$monster->id}}','{{\Illuminate\Support\Facades\Auth::user()->id}}')">
                                             <img
-                                                    src="{{ asset('img/minus1.png') }}">
+                                                src="{{ asset('img/minus1.png') }}">
                                         </button>
-                                        <span id="{{$monster->id}}">{{$monster->amountOwnedBy()}}</span>
+                                        <span id="{{$monster->id}}">{{$monster->amountOwnedBy($list->id)}}</span>
                                         <button type="button"
-                                                onclick="adddb('{{$monster->id}}','{{\Illuminate\Support\Facades\Auth::user()->id}}')">
+                                                onclick="addMonster('{{$monster->id}}','{{\Illuminate\Support\Facades\Auth::user()->id}}')">
                                             <img
-                                                    src="{{ asset('img/plus1.png') }}"></button>
+                                                src="{{ asset('img/plus1.png') }}"></button>
                                         </button>
                                     </td>
                                 </tr>
@@ -45,7 +45,13 @@
                     </table>
 
 
-
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <ol id="userstable">@foreach($list->users as $user)
+                                               <li>{{$user->name}}</li>
+                        @endforeach</ol>
                 </div>
             </div>
         </div>
@@ -55,22 +61,22 @@
             $('#soultable').DataTable();
         });
 
-        function adddb(monster_id, user_id) {
+        function addMonster(monster_id, monster_list_id) {
             $.get('/monsters/collection/add', {
                     monster_id: monster_id,
-                    user_id: user_id
+                    monster_list_id: monster_list_id
                 }, function () {
                     $('#' + monster_id).text(parseInt($('#' + monster_id).text()) + 1);
                 }
             );
         }
 
-        function subtractdb(monster_id, user_id) {
+        function subtractMonster(monster_id, monster_list_id) {
             if ($('#' + monster_id).text() == 0) {
             } else {
                 $.get('/monsters/collection/subtract', {
                         monster_id: monster_id,
-                        user_id: user_id
+                        monster_list_id: monster_list_id
                     }, function () {
                         $('#' + monster_id).text(parseInt($('#' + monster_id).text()) - 1);
                     }

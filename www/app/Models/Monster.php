@@ -13,9 +13,10 @@ class Monster extends Model
      * 0 = normal
      * 1 = arch
      * 2 = boss
-     * monsters with no arch will have a type but no associate
+     * souls with no arch will have a type but no associate
      */
-    protected $fillable = ['monster_name', 'type', 'associate'];
+    protected $guarded = [];
+
     public $timestamps = false;
 
 
@@ -53,7 +54,7 @@ class Monster extends Model
 
     public static function allArchs()
     {
-        return Monster::where('type', '=', '1')->orderBy('monster_name')->get();
+        return Monster::where('type', '=', '1')->orderBy('soul_name')->get();
     }
 
     public static function allBosses()
@@ -68,7 +69,7 @@ class Monster extends Model
                 return 'Normal';
                 break;
             case '1':
-                return 'Archmonster';
+                return 'Archsoul';
                 break;
             case '2':
                 return 'Boss';
@@ -79,22 +80,14 @@ class Monster extends Model
     public function otherName($int)
     {
         if ($this->associate !== null) {
-            $monsters = Monster::find($this->associate);
+            $souls = Monster::find($this->associate);
 
-            return $monsters->monster_name;
+            return $souls->soul_name;
         } else {
             return 'no name';
         }
     }
-
-    public function amountOwnedBy(User $user = null)
-    {
-        if ($user) {
-            return MonsterOwnership::where('user_id', $user->id)->where('monster_id', $this->id)->count();
-        } else {
-            return MonsterOwnership::where('user_id', 1)->where('monster_id', $this->id)->count();
-        }
-    }
-
-
+public function amountOwnedBy($list){
+        return MonsterOwnership::where('monster_list_id',$list)->where('monster_id',$this->id)->count();
+}
 }

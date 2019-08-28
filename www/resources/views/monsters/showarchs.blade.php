@@ -14,7 +14,6 @@
                         <tbody>
 
                             @foreach($monsters as $monster)
-                                {{--                @php(var_dump($monster))--}}
                                 <tr>
                                     <td>{{$monster->monster_name}}</td>
                                     <td>{{$monster->otherName()}}</td>

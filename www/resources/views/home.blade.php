@@ -34,7 +34,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($almanaxes as $almanax)
+                                    @foreach(App\Models\Almanax::pickNext() as $almanax)
                                         <tr>
                                             <td>{{$almanax->needed_by}}</td>
                                             <td>{{$almanax->offering}}</td>

@@ -38,22 +38,12 @@ class User extends Authenticatable
     ];
 
     /**
-     * @param integer from 0 to 2 indicating type $type
-     * @return \Illuminate\Database\Eloquent\Collection of monsters owned
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function ownedSouls($type = null)
+    public function lists()
     {
-        if ($type) {
-            return $this
-                ->hasManyThrough('App\Models\MonsterOwnership', 'App\Models\Monster')
-                ->where('type', '=', $type)
-                ->orderBy('monster_id')
-                ->get();
-        } else {
-            return $this
-                ->hasManyThrough('App\Models\MonsterOwnership', 'App\Models\Monster')
-                ->orderBy('monster_id')
-                ->get();
-        }
+
+        return $this->belongsToMany(MonsterList::class, 'user_lists');
+
     }
 }
