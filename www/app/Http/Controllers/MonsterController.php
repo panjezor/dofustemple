@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Monster;
 use App\Models\MonsterList;
 use App\Models\MonsterOwnership;
+use App\Models\UserMonsterList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,9 +44,33 @@ class MonsterController extends Controller
         return view('ochrehelper', ['monsters' => $monsters]);
     }
 
-    public function showMyLists()
+    public function showMyLists(Request $request)
     {
-        return view('monsters.lists', ['lists' => MonsterList::listsForUser(Auth::user())]);
+
+        if ($name = $request->input('add_list_name')) {
+            $list = new MonsterList();
+            $list->name = $name;
+            $list->save();
+
+            $link = new UserMonsterList();
+            $link->user_id = Auth::user()->id;
+            $link->monster_list_id = $list->id;
+            $link->save();
+        }
+        if ($id = $request->input('delete_list_id')) {
+            if(Auth::user()->lists->contains(MonsterList::find($id))) {
+                $list = MonsterList::find($id);
+                if (Auth::user()->lists->contains())
+                    $list->save();
+
+                $link = new UserMonsterList();
+                $link->user_id = Auth::user()->id;
+                $link->monster_list_id = $list->id;
+                $link->save();
+            }
+        }
+
+        return view('monsters.lists', ['lists' => Auth::user()->lists]);
     }
 
     public function showAllLists()
@@ -58,7 +83,7 @@ class MonsterController extends Controller
         return view('monsters.lists', ['lists' => MonsterList::all()->get()]);
     }
 
-    public function add(Request $request)
+    public function add(Request $request) // check the user to find the current list
     {
         if ($request->input('monster_id') && $request->input('user_id')) {
             $ownership = new MonsterOwnership(
@@ -71,7 +96,7 @@ class MonsterController extends Controller
         return 'false';
     }
 
-    public function subtract(Request $request)
+    public function subtract(Request $request) // check the user to find the current list
     {
         if ($request->input('monster_id') && $request->input('user_id')) {
             $ownership = MonsterOwnership::

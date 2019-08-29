@@ -21,13 +21,13 @@
                                     <td>{{$monster->getType()}}</td>
                                     <td>
                                         <button type="button"
-                                                onclick="subtractMonster('{{$monster->id}}','{{\Illuminate\Support\Facades\Auth::user()->id}}')">
+                                                onclick="subtractMonster('{{$monster->id}}'')">
                                             <img
                                                 src="{{ asset('img/minus1.png') }}">
                                         </button>
                                         <span id="{{$monster->id}}">{{$monster->amountOwnedBy($list->id)}}</span>
                                         <button type="button"
-                                                onclick="addMonster('{{$monster->id}}','{{\Illuminate\Support\Facades\Auth::user()->id}}')">
+                                                onclick="addMonster('{{$monster->id}}')">
                                             <img
                                                 src="{{ asset('img/plus1.png') }}"></button>
                                         </button>

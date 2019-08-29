@@ -42,8 +42,6 @@ class User extends Authenticatable
      */
     public function lists()
     {
-
         return $this->belongsToMany(MonsterList::class, 'user_lists');
-
     }
 }
