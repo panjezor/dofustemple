@@ -26,7 +26,7 @@
                         <div class="card-header">Almanax</div>
 
                         <div class="card-body">
-                            <table>
+                            <table class="table table-striped table-bordered table-bordered-dofus">
                                 <thead>
                                     <tr>
                                         <th>Date</th>
