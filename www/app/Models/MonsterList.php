@@ -15,7 +15,8 @@ class MonsterList extends Model
         return $this->belongsToMany(User::class, 'user_lists');
     }
 
-    public function myList(){
-        return $this->hasManyThrough(Monster::class, MonsterOwnership::class,'monster_list_id','id','id','monster_id');
+    public function myList()
+    {
+        return $this->hasManyThrough(Monster::class, MonsterOwnership::class, 'monster_list_id', 'id', 'id', 'monster_id');
     }
 }

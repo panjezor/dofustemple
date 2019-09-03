@@ -21,7 +21,7 @@
 
             <div class="row justify-content-right">
 
-                <div class="col-md-11">
+                 <div class="col-md-9" >
                     <div class="card">
                         <div class="card-header">Almanax</div>
 
@@ -55,7 +55,6 @@
         </div>
     </div>
     @include('helperviews.datatables')
-
     <script>
         $().ready(function () {
             $('table').DataTable();

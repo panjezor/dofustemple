@@ -19,7 +19,7 @@
                         // ,
                         // normalname: $('#normal').val()
                     },
-                    function(response){
+                    function (response) {
 
                     });
             })
