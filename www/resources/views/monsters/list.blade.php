@@ -4,7 +4,7 @@
         <div class="row justify-content-left">
             <div class="col-md-9">
                 <div class="card">
-                    <table id="soultable">
+                    <table id="soultable" class="table table-striped table-bordered table-bordered-dofus">
                         <thead>
                             <tr>
                                 <td>Name</td>
@@ -21,13 +21,13 @@
                                     <td>{{$monster->getType()}}</td>
                                     <td>
                                         <button type="button"
-                                                onclick="subtractMonster('{{$monster->id}}'')">
+                                                onclick="subtractMonster('{{$monster->id}}',{{$list->id}})">
                                             <img
                                                 src="{{ asset('img/minus1.png') }}">
                                         </button>
                                         <span id="{{$monster->id}}">{{$monster->amountOwnedBy($list->id)}}</span>
                                         <button type="button"
-                                                onclick="addMonster('{{$monster->id}}')">
+                                                onclick="addMonster('{{$monster->id}}, {{$list->id}}')">
                                             <img
                                                 src="{{ asset('img/plus1.png') }}"></button>
                                         </button>
@@ -62,7 +62,7 @@
         });
 
         function addMonster(monster_id, monster_list_id) {
-            $.get('/monsters/collection/add', {
+            $.get(window.location.pathname+'/add', {
                     monster_id: monster_id,
                     monster_list_id: monster_list_id
                 }, function () {
@@ -74,7 +74,7 @@
         function subtractMonster(monster_id, monster_list_id) {
             if ($('#' + monster_id).text() == 0) {
             } else {
-                $.get('/monsters/collection/subtract', {
+                $.get(window.location.pathname+'/subtract', {
                         monster_id: monster_id,
                         monster_list_id: monster_list_id
                     }, function () {

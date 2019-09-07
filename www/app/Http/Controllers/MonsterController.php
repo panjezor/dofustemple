@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Monster;
 use App\Models\MonsterList;
 use App\Models\MonsterOwnership;
+use App\Models\User;
 use App\Models\UserMonsterList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,18 +18,34 @@ class MonsterController extends Controller
      */
     public function addmob(Request $request)
     {
-        $name = $request->input('name');
-        if ($name) {
-            $monster = Monster::firstOrNew(['monster_name' => $name], ['type' => $request->input('type')]);//0 - normal, 1 - arch, 2 - boss
-            $monster->save();
+
+        $normalname = $request->input('normalname');
+        $archname = $request->input('archname');
+        if ($normalname) {
+            $nmonster = Monster::firstOrNew(['monster_name' => $normalname], ['type' => 0]);//0 - normal, 1 - arch, 2 - boss
+            $nmonster->save();
+        }
+        if ($archname) {
+            $amonster = Monster::firstOrNew(['monster_name' => $archname], ['type' => 1]);//0 - normal, 1 - arch, 2 - boss$amonster->save();
+            $nmonster->save() && $amonster->save();
+        }
+
+        if ($normalname && $archname) {
+            $nmonster->associate = $amonster->id;
+            $amonster->associate = $nmonster->id;
+
+        }
+        if ($nmonster->save() && $amonster->save()) {
             return 'true';
         }
         return 'false';
+
+
     }
 
     public function input()
     {
-        return view('monsterinput', ['title' => 'Moby na ochre']);
+        return view('monsters.monsterinput', ['title' => 'Moby na ochre']);
     }
 
     public function showArch()
@@ -46,44 +63,51 @@ class MonsterController extends Controller
 
     public function showMyLists(Request $request)
     {
-
-        if ($name = $request->input('add_list_name')) {
+        $user = Auth::user();
+        $lists = $user->lists;
+        if ($name = $request->input('inputListName')) {
+            $char_count = $request->input('inputCharCount');
             $list = new MonsterList();
-            $list->name = $name;
+            $list->list_name = $name;
+            $list->characters_number = $char_count;
             $list->save();
 
             $link = new UserMonsterList();
-            $link->user_id = Auth::user()->id;
+            $link->user_id = $user->id;
             $link->monster_list_id = $list->id;
             $link->save();
         }
-        if ($id = $request->input('delete_list_id')) {
-            if(Auth::user()->lists->contains(MonsterList::find($id))) {
+        if ($id = $request->input('deleteList')) {
+            if ($user->hasList($id)) {
                 $list = MonsterList::find($id);
-                if (Auth::user()->lists->contains())
-                    $list->save();
-
-                $link = new UserMonsterList();
-                $link->user_id = Auth::user()->id;
-                $link->monster_list_id = $list->id;
-                $link->save();
+                if ($list) {
+                    $list->delete();
+                } else {
+                    throw new \Exception('The list does not exist, go back and try again or contact administrator.');
+                };
             }
         }
+        $user = User::find($user->id); // old instance of User still holds the relationships, so needs to be initialized again to refresh it.
+        $lists = $user->lists;
+        return view('monsters.lists', ['lists' => $lists]);
 
-        return view('monsters.lists', ['lists' => Auth::user()->lists]);
+        //sidenote for future development -> assign monsters to dungeons, so people would see if they can run a dun to capture a midmonster
     }
 
-    public function showAllLists()
+    public
+    function showAllLists()
     {
 
         $user = Auth::user();
         if ($user->id !== 1 && $user->id !== 2) { // if user is not admin <- needs changing when i get to
             return abort(403);
         }
+
         return view('monsters.lists', ['lists' => MonsterList::all()->get()]);
     }
 
-    public function add(Request $request) // check the user to find the current list
+    public
+    function add(Request $request) // check the user to find the current list
     {
         if ($request->input('monster_id') && $request->input('user_id')) {
             $ownership = new MonsterOwnership(
@@ -96,9 +120,11 @@ class MonsterController extends Controller
         return 'false';
     }
 
-    public function subtract(Request $request) // check the user to find the current list
+    public
+    function subtract(Request $request) // check the user to find the current list
     {
-        if ($request->input('monster_id') && $request->input('user_id')) {
+        if ($request->input('monster_id') && $request->input('monster_list_id')) {
+            $user = Auth::user();
             $ownership = MonsterOwnership::
             where('monster_id', $request->input('monster_id'))
                 ->where('user_id', $request->input('user_id'))->first();
@@ -108,7 +134,8 @@ class MonsterController extends Controller
         return 'false';
     }
 
-    public function showList(MonsterList $list)
+    public
+    function showList(MonsterList $list)
     {
         return view('monsters.list', ['list' => $list]);
     }

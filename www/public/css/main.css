@@ -76,5 +76,10 @@ select, input{
 .navbar-light .navbar-nav .nav-link {
     color: rgba(255, 255, 55, 0.5);
 }
-
+a{
+    color: lightcoral;
+}
+a:hover{
+    color:darkred;
+}
 /*# sourceMappingURL=main.css.map */

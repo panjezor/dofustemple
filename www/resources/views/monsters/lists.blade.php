@@ -8,13 +8,14 @@
                         Lists
                     </div>
                     <div class="p-2">
-                        <table id="lists" class="table table-bordered table-striped table-hover justify-content-center">
+                        <table id="lists" class="table table-striped table-bordered table-bordered-dofus table-hover justify-content-center">
                             <thead>
 
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Users</th>
+                                    <th>Characters</th>
                                     <th>Delete</th>
                                 </tr>
 
@@ -35,7 +36,8 @@
                                                     ,
                                                 @endif
                                             @endforeach </td>
-                                        <td><a href="deletelist/{{$list->id}}" class="close" aria-label="Close">
+                                        <td>{{$list->characters_number}}</td>
+                                        <td><a href="lists?deleteList={{$list->id}}" class="close" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </a></td>
                                     </tr>
@@ -46,6 +48,7 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Users</th>
+                                    <th>Characters</th>
                                     <th>Delete</th>
                                 </tr>
                             </tfoot>

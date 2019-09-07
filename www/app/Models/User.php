@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use phpDocumentor\Reflection\Types\Integer;
 
 class User extends Authenticatable
 {
@@ -43,5 +44,17 @@ class User extends Authenticatable
     public function lists()
     {
         return $this->belongsToMany(MonsterList::class, 'user_lists');
+    }
+
+    public function hasList($list_id)
+    {
+        $lists = $this->belongsToMany(MonsterList::class, 'user_lists')->get();
+        $check = 'hehe';
+        $lists->map(function ($list) use ($list_id, &$check) {
+            if ($list->id == $list_id) {
+                $check = true;
+            }
+        });
+        return $check;
     }
 }
