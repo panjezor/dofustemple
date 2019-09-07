@@ -13,7 +13,14 @@
 
 use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
+use Orangehill\Iseed\Iseed;
 
+
+Route::get('/seed', function () {
+    $seed = new Iseed();
+    $seed->generateSeed('almanax');
+    return 'true';
+});
 Route::get('/register', function () {
     return view('auth.register');
 });
