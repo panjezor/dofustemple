@@ -1,6 +1,9 @@
 .navbar {
     background-color: darkgreen;
 }
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #17a2b8;
+}
 
 .card-header {
     background-color: #005400;
@@ -25,6 +28,10 @@ li a:hover {
 }
 
 body {
+    background-image: url('https://vignette.wikia.nocookie.net/krosmoz/images/a/a8/Emerald_Dofus.png/revision/latest?cb=20130709050117');
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: center;
     background-color: #2a9055;
     color: #e5ba33;
 }
@@ -43,8 +50,6 @@ body {
     background-color: #004400;
     background: linear-gradient(to bottom, #007400 0%, #003400 100%);
     color: #e5ba33 !important;
-
-
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:active {
@@ -62,24 +67,151 @@ body {
 
 
 }
-select, input{
+
+select, input {
     background-color: #009400;
     color: #e5ba33 !important;
 
 
 }
+
 .table-bordered-dofus, .table-bordered-dofus td, .table-bordered-dofus th {
     border: 1px solid #003400;
     color: #e5ba33 !important;
 
 }
+
 .navbar-light .navbar-nav .nav-link {
     color: rgba(255, 255, 55, 0.5);
+    background-color: #004400;
 }
-a{
+
+a {
     color: lightcoral;
 }
-a:hover{
-    color:darkred;
+
+a:hover {
+    color: darkred;
 }
+
+.card-header {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    padding: 70px 15px 74px 15px;
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+    font-size: 2rem;
+}
+
+.card-header::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(54, 84, 99, 0.7);
+    background-image: url('https://i.pinimg.com/originals/ce/c1/7a/cec17afbfd1575ef9f4c915548a5c623.jpg');
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+}
+
+.title {
+    font-size: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.btn-link {
+    color: #abbf3a;
+}
+
+.btn-link:hover {
+    color: #abbf3a;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #abbf3a;
+    border-color: #abbf3a;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #abbf3a;
+    border-color: #abbf3a;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 .2rem rgba(171, 191, 58, .5);
+}
+
+
+input:not([type="checkbox"]) {
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(4em + 1px);
+    margin: 0 0 1em;
+    padding: 1em;
+    border: 1px solid #ccc;
+    background: #fff;
+    resize: none;
+    outline: none;
+    font-size: 13px;
+}
+
+input[required]:focus {
+    border-color: #abbf3a;
+}
+
+input[required]:focus + label[placeholder]:before {
+    color: #abbf3a;
+}
+
+input[required]:focus + label[placeholder]:before,
+input[required]:valid + label[placeholder]:before {
+    transition-duration: .2s;
+    transform: translate(0, -1.5em) scale(0.9, 0.9);
+}
+
+input[required]:invalid + label[placeholder][alt]:before {
+    content: attr(alt);
+}
+
+input[required] + label[placeholder] {
+    display: block;
+    pointer-events: none;
+    line-height: 1em;
+    margin-top: calc(-3em - 2px);
+    margin-bottom: calc((3em - 1em) + 2px);
+}
+
+input[required] + label[placeholder]:before {
+    content: attr(placeholder);
+    display: inline-block;
+    margin: 0 calc(1em + 2px);
+    padding: 0 2px;
+    color: #898989;
+    white-space: nowrap;
+    transition: 0.3s ease-in-out;
+    background-image: linear-gradient(to bottom, #fff, #fff);
+    background-size: 100% 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -35,6 +35,7 @@
         <script type="text/javascript" src="{{ asset('js/datatables.min.js') }}" defer></script>
         <script type="text/javascript" src="{{ asset('js/datatables2.min.js') }}" defer></script>
 
+
         <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.min.css') }}"/>
         <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
@@ -46,7 +47,7 @@
     <body>
         <div id="app">
             <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-                <div class="container" id="navbar">
+                <div class="container-fluid" id="navbar">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <img
                             src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Dofus_logo.png/220px-Dofus_logo.png"
@@ -60,20 +61,21 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
-                        <ul class="nav nav-pills nav-justified navbar-nav mr-auto">
-                            <li><a class="nav-item nav-link" href="/daily">daily quest reminder z checkboxami - 3 w
+                        <ul class="nav nav-pills nav-justified navbar-nav m-auto">
+                            <li><a class="nav-item nav-link border-1 m-1" href="/daily">daily quest reminder z checkboxami - 3 w
                                     koalaku, almanax, keruby, sufokia</a></li>
                             <li>
-                                <a class="nav-item nav-link" href="/monsters/lists">Monster Soul Manager</a>
+                                <a class="nav-item nav-link border-1 m-1" href="/monsters/lists">Monster Soul Manager</a>
                             </li>
                             <li>
-                                <a class="nav-item nav-link" href="/events">dashboard do eventow + bonusy z almanaxa</a>
+                                <a class="nav-item nav-link border-1 m-1" href="/events">dashboard do eventow + bonusy z almanaxa</a>
                             </li>
                             <li>
-                                <a class="nav-item nav-link" href="#">portale do zrobienia na dashboardzie</a>
+                                <a class="nav-item nav-link border-1 m-1" href="#">portale do zrobienia na dashboardzie</a>
                             </li>
-                            <li><a class="nav-item nav-link" href="/links">zbior przydatnych linkow - dofuspourlesnoobs,
+                            <li><a class="nav-item nav-link border-1 m-1" href="/links">zbior przydatnych linkow - dofuspourlesnoobs,
                                     treasure hunt, dofuswiki</a></li>
+                            <li><a class="nav-item nav-link border-1 m-1" href="/links">czat/forum</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->

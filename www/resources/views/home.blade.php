@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row ">
-            <div class="col-2">
-                <div class="card">
+            <div class="col-lg-2 col-md-4 col-sm-7">
+                <div class="card shadow mb-5 rounded">
                     <div class="card-header">Dashboard</div>
-
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -14,13 +13,15 @@
                             </div>
                         @endif
 
-                        You are logged in!
+                        <p>Have a nice day!</p>
+                        <p>You are one of {{app\Models\User::all()->count()}} users registered on our website.</p>
+                        <p>Feel free to share this tool with your friends</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-6">
-                <div class="card">
+            <div class="col-lg-4 col-md-12">
+                <div class="card shadow mb-5 rounded">
                     <div class="card-header">Almanax</div>
 
                     <div class="card-body">
@@ -51,7 +52,6 @@
             </div>
         </div>
     </div>
-    @include('helperviews.datatables')
     <script>
         $().ready(function () {
             $('table').DataTable();
