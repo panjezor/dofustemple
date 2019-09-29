@@ -1,7 +1,10 @@
 <?php
 
 return [
-
+    /*
+     * This is a blacklist so if anyone was there to access pages during development,
+     * they should not see any of the important variables.
+     */
     'debug_blacklist' => [
         '_ENV' => [
             'APP_KEY',
