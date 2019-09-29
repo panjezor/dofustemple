@@ -11,30 +11,32 @@
 |
 */
 
-use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
 use Orangehill\Iseed\Iseed;
 
 
-Route::get('/seed', function () {
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/seed/{table}', function ($table) {
     $seed = new Iseed();
-    $seed->generateSeed('almanax');
+    $seed->generateSeed($table);
     return 'true';
 });
-Route::get('/register', function () {
-    return view('auth.register');
-});
-Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/register', function () {
-        return view('auth.register');
-    });
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', function () {
         Auth::logout();
         return redirect('/');
     });
-    Route::get('/home', 'HomeController@index');
+
     Route::get('/', 'HomeController@index')->name('home');
+    Route::prefix('/drop')->group(function () {
+        Route::get('/', 'DropController@index');
+        Route::get('/addteam', 'DropController@index');
+    });
+
 
     Route::prefix('/almanax')->group(function () {
         Route::get('/list', 'AlmanaxController@list');
@@ -61,6 +63,4 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
 });
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

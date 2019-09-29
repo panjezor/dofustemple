@@ -76,6 +76,8 @@
                             <li><a class="nav-item nav-link border-1 m-1" href="/links">zbior przydatnych linkow - dofuspourlesnoobs,
                                     treasure hunt, dofuswiki</a></li>
                             <li><a class="nav-item nav-link border-1 m-1" href="/links">czat/forum</a></li>
+                            <li><a class="nav-item nav-link border-1 m-1" href="/drop">Kalkulator dropow</a></li>
+
                         </ul>
 
                         <!-- Right Side Of Navbar -->
