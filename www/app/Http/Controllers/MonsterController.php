@@ -61,7 +61,7 @@ class MonsterController extends Controller
         return view('ochrehelper', ['monsters' => $monsters]);
     }
 
-    public function showMyLists(Request $request)
+    public function showMyLists(Request $request) // this should go into a facade
     {
         $user = Auth::user();
         $lists = $user->lists;
@@ -107,7 +107,7 @@ class MonsterController extends Controller
     }
 
     public
-    function add(Request $request) // check the user to find the current list
+    function add(Request $request) // check the user to find the current list  // this should go into a facade
     {
         if ($request->input('monster_id') && $request->input('user_id')) {
             $ownership = new MonsterOwnership(
@@ -121,7 +121,7 @@ class MonsterController extends Controller
     }
 
     public
-    function subtract(Request $request) // check the user to find the current list
+    function subtract(Request $request) // check the user to find the current list // this should go into a facade
     {
         if ($request->input('monster_id') && $request->input('monster_list_id')) {
             $user = Auth::user();
