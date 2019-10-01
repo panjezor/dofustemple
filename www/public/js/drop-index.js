@@ -21,4 +21,15 @@ $().ready(function () {
             $('#monster-pp').append(options);
         }
     );
-})
+
+});
+
+function countChance() {
+    let characters = $('#character-pp>.form-control');
+    let monsterProb = $('#monster-pp').val();
+    let chance = 1;
+    characters.each(function (element) {
+        console.log(element);
+    });
+    chance = 'hehe';
+}

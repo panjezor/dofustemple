@@ -8,7 +8,7 @@
                     <div class="card-header">{{__('drop.calc')}}</div>
                     <div class="card-body">
                         <div class="form-group" style="display: flex;">
-                            <div class="col-2">
+                            <div class="col-xl-3 col-lg-6">
                                 <div class=" card">
                                     <div class="card-header">
                                         <label for="character-count">{{__('drop.characters')}}</label>
@@ -26,19 +26,19 @@
                                 </div>
                                 <div id="character-pp" class="card-body"></div>
                             </div>
-                            <div class="col-2">
+                            <div class="col-xl-3 col-lg-6">
                                 <div class="card">
                                     <div class="card-header">
                                         <label for="monster-count">{{__('drop.monsters')}}</label>
                                         <select name="monster-count" id="monster-count" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
+                                            <option value="10">1</option>
+                                            <option value="20">2</option>
+                                            <option value="30">3</option>
+                                            <option value="40">4</option>
+                                            <option value="50">5</option>
+                                            <option value="60">6</option>
+                                            <option value="70">7</option>
+                                            <option value="80">8</option>
                                         </select>
                                     </div>
                                     <div id="monster-pp" class="card-body"></div>
