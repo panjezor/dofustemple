@@ -68,7 +68,7 @@ body {
 
 }
 
-select, input {
+.form-control, .form-control:focus {
     background-color: #009400;
     color: #e5ba33 !important;
 
@@ -167,8 +167,9 @@ input:not([type="checkbox"]) {
     height: calc(4em + 1px);
     margin: 0 0 1em;
     padding: 1em;
-    border: 1px solid #ccc;
-    background: #fff;
+    border: 1px solid yellow;
+    background-color: #009400;
+
     resize: none;
     outline: none;
     font-size: 13px;
