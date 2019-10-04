@@ -27,7 +27,7 @@
                                         </button>
                                         <span id="{{$monster->id}}">{{$monster->amountOwnedBy($list->id)}}</span>
                                         <button type="button"
-                                                onclick="addMonster('{{$monster->id}}, {{$list->id}}')">
+                                                onclick="addMonster({{$monster->id}}, {{$list->id}})">
                                             <img
                                                 src="{{ asset('img/plus1.png') }}"></button>
                                         </button>
