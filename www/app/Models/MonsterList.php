@@ -19,4 +19,9 @@ class MonsterList extends Model
     {
         return $this->hasManyThrough(Monster::class, MonsterOwnership::class, 'monster_list_id', 'id', 'id', 'monster_id');
     }
+
+    public function ownerships()
+    {
+        return $this->hasMany(MonsterOwnership::class);
+    }
 }

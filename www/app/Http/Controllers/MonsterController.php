@@ -107,27 +107,25 @@ class MonsterController extends Controller
     }
 
     public
-    function add(Request $request) // check the user to find the current list  // this should go into a facade
+    function add(MonsterList $list, Monster $monster) // check the user to find the current list
     {
-        if ($request->input('monster_id') && $request->input('user_id')) {
-            $ownership = new MonsterOwnership(
-                ['monster_id' => $request->input('monster_id'),
-                    'user_id' => $request->input('user_id')]
-            );
-            $ownership->save();
+        $user = Auth::user();
+        if ($list && $monster && $user->hasList($list->id)) {
+            $ownership = new MonsterOwnership(['monster_id' => $monster->id]);
+            $list->ownerships()->save($ownership);
             return 'true';
         }
         return 'false';
     }
 
     public
-    function subtract(Request $request) // check the user to find the current list // this should go into a facade
+    function subtract(MonsterList $list, Monster $monster) // check the user to find the current list
     {
-        if ($request->input('monster_id') && $request->input('monster_list_id')) {
-            $user = Auth::user();
+        $user = Auth::user();
+        if ($list && $monster && $user->hasList($list->id)) {
             $ownership = MonsterOwnership::
-            where('monster_id', $request->input('monster_id'))
-                ->where('user_id', $request->input('user_id'))->first();
+            where('monster_id', $monster->id)
+                ->where('monster_list_id', $list->id)->first();
             $ownership->delete();
             return 'true';
         }
