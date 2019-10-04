@@ -11,7 +11,6 @@
 |
 */
 
-use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
 use Orangehill\Iseed\Iseed;
 
@@ -54,8 +53,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::prefix('/{list}')->group(function () {
 
                 Route::get('/', 'MonsterController@showList');
-                Route::get('/add', 'MonsterController@add');
-                Route::get('/subtract', 'MonsterController@subtract');
+                Route::get('/add/{monster}', 'MonsterController@add');
+                Route::get('/subtract/{monster}', 'MonsterController@subtract');
             });
         });
     });

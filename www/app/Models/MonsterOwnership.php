@@ -14,11 +14,11 @@ class MonsterOwnership extends Model
 
     public function soul()
     {
-        return $this->hasOne('App\Models\Monster');
+        return $this->hasOne(Monster::class);
     }
 
     public function list()
     {
-        return $this->belongsTo('App\Models\List');
+        return $this->belongsTo(MonsterList::class);
     }
 }
