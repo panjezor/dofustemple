@@ -2,8 +2,11 @@
 @section('content')
     <p>hehe</p>
 
+
+@endsection
+@push('scripts')
     <script>
-        $().ready()
+        $().ready();
         {
             for (var i = 0; i < 365; i++) {
                 var date = new Date();
@@ -26,4 +29,4 @@
             }
         }
     </script>
-@endsection
+@endpush

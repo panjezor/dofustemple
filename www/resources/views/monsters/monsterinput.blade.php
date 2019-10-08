@@ -6,7 +6,8 @@
                 <input type="text" id="arch"><br>
                 <label for="normal">Normalny mobek</label>
                 <input type="text" id="normal"><br>
-                <button class="btn btn-primary">Submit</button></div>
+                <button class="btn btn-primary">Submit</button>
+            </div>
         </div>
     </div>
 
@@ -31,3 +32,25 @@
 
     </script>
 @endsection
+@push('scripts')
+    <script>
+        $().ready(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            });
+            $('button').click(function () {
+                $.post('/monsters/add', {
+                        normalname: $('#normal').val(),
+                        archname: $('#arch').val(),
+
+                    },
+                    function (response) {
+
+                    });
+            })
+        })
+
+    </script>
+@endpush

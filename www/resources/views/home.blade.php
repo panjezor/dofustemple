@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-lg-2 col-md-4 col-sm-7">
+    <div class="col-xl-2 col-lg-3 col-md-4 col-12">
                 <div class="card shadow mb-5 rounded">
                     <div class="card-header">Dashboard</div>
                     <div class="card-body">
@@ -20,7 +18,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-12">
+    <div class="col-xl-5 col-lg-6 col-md-8 col-12">
                 <div class="card shadow mb-5 rounded">
                     <div class="card-header">Almanax</div>
 
@@ -50,11 +48,12 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+
+@endsection
+@push('scripts')
     <script>
         $().ready(function () {
             $('table').DataTable();
         });</script>
-
-@endsection
+@endpush
