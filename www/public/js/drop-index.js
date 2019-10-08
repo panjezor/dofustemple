@@ -1,5 +1,5 @@
 $().ready(function () {
-    $('#char-span1').css('display', 'inline-block');
+    $('#char-span1').css('display', 'inline-grid');
 
 
     $('#character-count').on('change', function () {
