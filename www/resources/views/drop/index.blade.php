@@ -25,8 +25,13 @@
                                     </div>
                                 </div>
                                 <div id="character-pp" class="card-body">
-                                    <label for="character1">{{__('drop.character')}}</label><input id="character1"
-                                                                                                   class="form-control">
+                                    @foreach(range(1,8) as $value)
+                                        <span id="char-span{{$value}}" style="display: none">
+                                        <label for="character{{$value}}">{{__('drop.character')}}</label><input
+                                                id="character{{$value}}"
+                                                class="form-control">
+                                        </span>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6">
