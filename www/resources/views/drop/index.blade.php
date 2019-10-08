@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row ">
+        <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card shadow mb-5 rounded">
                     <div class="card-header">{{__('drop.calculator')}}</div>
                     <div class="card-body">
                         <div class="form-group" style="display: flex;">
-                            <div class="col-xl-3 col-lg-6">
-                                <div class=" card">
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class=" card shadow mb-1 rounded">
                                     <div class="card-header">
                                         <label for="character-count">{{__('drop.characters')}}</label>
                                         <select name="character-count" id="character-count" class="form-control">
@@ -23,19 +23,22 @@
                                             <option value="8">8</option>
                                         </select>
                                     </div>
-                                </div>
-                                <div id="character-pp" class="card-body">
-                                    @foreach(range(1,8) as $value)
-                                        <span id="char-span{{$value}}" style="display: none">
-                                        <label for="character{{$value}}">{{__('drop.character')}}</label><input
+                                    <div id="character-pp" class="card-body">
+                                        @foreach(range(1,8) as $value)
+                                            <span id="char-span{{$value}}" style="display: none">
+                                        <label for="character{{$value}}">{{__('drop.character')}}</label>
+                                            <input
                                                 id="character{{$value}}"
                                                 class="form-control">
                                         </span>
-                                    @endforeach
+                                        @endforeach
+                                    </div>
                                 </div>
+
                             </div>
-                            <div class="col-xl-3 col-lg-6">
-                                <div class="card">
+
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="card shadow mb-1 rounded">
                                     <div class="card-header">
                                         {{__('drop.monsters')}}
                                     </div>
@@ -52,8 +55,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-6">
-
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="card shadow mb-1 rounded">
+                                    hello
+                                </div>
                             </div>
                         </div>
                     </div>
