@@ -7,6 +7,7 @@ use App\Models\MonsterList;
 use App\Models\MonsterOwnership;
 use App\Models\User;
 use App\Models\UserMonsterList;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -64,7 +65,6 @@ class MonsterController extends Controller
     public function showMyLists(Request $request) // this should go into a facade
     {
         $user = Auth::user();
-        $lists = $user->lists;
         if ($name = $request->input('inputListName')) {
             $char_count = $request->input('inputCharCount');
             $list = new MonsterList();
@@ -83,7 +83,7 @@ class MonsterController extends Controller
                 if ($list) {
                     $list->delete();
                 } else {
-                    throw new \Exception('The list does not exist, go back and try again or contact administrator.');
+                    throw new Exception('The list does not exist, go back and try again or contact administrator.');
                 };
             }
         }
