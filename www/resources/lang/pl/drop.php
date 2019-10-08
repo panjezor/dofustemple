@@ -1,8 +1,12 @@
 <?php
 
 return [
-    'calc' => 'Kalkulator',
+    'calculator' => 'Kalkulator',
     'characters' => 'Postaci',
-    'monsters' => 'Potwory'
+    'character' => 'Postac',
+    'monsters' => 'Potwory',
+    'item-drop-rate' => 'Item drop rate',
+    'prospecting-lock' => 'Prospecting lock',
+    'monster-count' => 'Monster count'
 
 ];

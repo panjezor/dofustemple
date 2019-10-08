@@ -5,7 +5,7 @@
         <div class="row ">
             <div class="col-12">
                 <div class="card shadow mb-5 rounded">
-                    <div class="card-header">{{__('drop.calc')}}</div>
+                    <div class="card-header">{{__('drop.calculator')}}</div>
                     <div class="card-body">
                         <div class="form-group" style="display: flex;">
                             <div class="col-xl-3 col-lg-6">
@@ -24,25 +24,31 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div id="character-pp" class="card-body"></div>
+                                <div id="character-pp" class="card-body">
+                                    <label for="character1">{{__('drop.character')}}</label><input id="character1"
+                                                                                                   class="form-control">
+                                </div>
                             </div>
                             <div class="col-xl-3 col-lg-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <label for="monster-count">{{__('drop.monsters')}}</label>
-                                        <select name="monster-count" id="monster-count" class="form-control">
-                                            <option value="10">1</option>
-                                            <option value="20">2</option>
-                                            <option value="30">3</option>
-                                            <option value="40">4</option>
-                                            <option value="50">5</option>
-                                            <option value="60">6</option>
-                                            <option value="70">7</option>
-                                            <option value="80">8</option>
-                                        </select>
+                                        {{__('drop.monsters')}}
                                     </div>
-                                    <div id="monster-pp" class="card-body"></div>
+                                    <div id="monster-pp" class="card-body form-group">
+                                        <label for="monster-drop">Item drop rate</label>
+                                        <input id="monster-drop" class="form-control" type="number" min="0" max="100"
+                                               value="0">
+                                        <label for="monster-lock">Prospecting lock</label>
+                                        <input id="monster-lock" class="form-control" type="number" min="0" max="400"
+                                               value="100">
+                                        <label for="monster-count">Monster count</label>
+                                        <input id="monster-count" class="form-control" type="number" min="1" max="8"
+                                               value="1">
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-6">
+
                             </div>
                         </div>
                     </div>
