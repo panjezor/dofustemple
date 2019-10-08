@@ -5,8 +5,8 @@ return [
     'characters' => 'Postaci',
     'character' => 'Postac',
     'monsters' => 'Potwory',
-    'item-drop-rate' => 'Item drop rate',
+    'item-drop-rate' => 'Szansa na drop (w procentach)',
     'prospecting-lock' => 'Prospecting lock',
-    'monster-count' => 'Monster count'
+    'monster-count' => 'Ilosc Potworow'
 
 ];

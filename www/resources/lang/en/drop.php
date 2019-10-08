@@ -5,7 +5,7 @@ return [
     'characters' => 'Characters',
     'character' => 'Character',
     'monsters' => 'Monsters',
-    'item-drop-rate' => 'Item drop rate',
+    'item-drop-rate' => 'Item drop rate (in percentage)',
     'prospecting-lock' => 'Prospecting lock',
     'monster-count' => 'Monster count'
 
