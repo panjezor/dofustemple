@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <p>hehe</p>
+    <div id="holder"></div>
 
 
 @endsection
@@ -24,7 +24,7 @@
                     futDate += +date.getDate();
                 }
                 var link = "/almanax/" + futDate;
-                $('p').append('<a href="' + link + '">click</a><br>');
+                $('#holder').append('<a href="' + link + '">click</a><br>');
 
             }
         }

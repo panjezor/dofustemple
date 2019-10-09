@@ -25,7 +25,7 @@
                                         <label for="character{{$value}}">{{__('drop.character')}}</label>
                                             <input
                                                 id="character{{$value}}"
-                                                class="form-control">
+                                                class="form-control" min="100" max="400" value="100">
                                         </span>
                         @endforeach
                     </div>
@@ -39,18 +39,19 @@
                         {{__('drop.monsters')}}
                     </div>
                     <div id="monster-pp" class="card-body form-group">
-                        <label for="monster-drop">Item drop rate</label>
+                        <label for="monster-drop">{{__('drop.item-drop-rate')}}</label>
                         <input id="monster-drop" class="form-control col-lg-4 col-md-6 col-12" type="number" min="0"
                                max="100"
                                value="0">
-                        <label for="monster-lock">Prospecting lock</label>
+                        <label for="monster-lock">{{__('drop.prospecting-lock')}}</label>
                         <input id="monster-lock" class="form-control col-lg-4 col-md-6 col-12" type="number" min="0"
                                max="400"
                                value="100">
-                        <label for="monster-count">Monster count</label>
+                        <label for="monster-count">{{__('drop.monster-count')}}</label>
                         <input id="monster-count" class="form-control col-lg-4 col-md-6 col-12" type="number" min="1"
                                max="8"
                                value="1">
+                        <button class="btn btn-primary">{{__('main.calculate')}}</button>
                     </div>
                 </div>
             </div>

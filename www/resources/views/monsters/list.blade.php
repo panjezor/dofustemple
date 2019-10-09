@@ -5,18 +5,18 @@
             <table id="soultable" class="table table-striped table-bordered table-bordered-dofus">
                 <thead>
                     <tr>
-                        <td>Name</td>
-                        <td>Type</td>
-                        <td>Amount</td>
+                        <td>{{__('monster.name')}}</td>
+                        <td>{{__('monster.type')}}</td>
+                        <td>{{__('monster.amount')}}</td>
                     </tr>
                 </thead>
                 <tbody>
-
-                    @foreach(App\Models\Monster::all() as $monster)
+                    @php($monsters = App\Models\Monster::all())
+                    @foreach($monsters as $monster)
                         <tr>
                             <td>{{$monster->monster_name}}</td>
                             <input type="hidden" id="monster_id" value="{{$monster->id}}">
-                            <td>{{$monster->getType()}}</td>
+                            <td>{{__('monster.'.$monster->type}}</td>
                             <td>
                                 <button type="button"
                                         onclick="subtractMonster({{$monster->id}})">
@@ -35,9 +35,9 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td>Name</td>
-                        <td>Type</td>
-                        <td>Amount</td>
+                        <td>{{__('monster.name')}}</td>
+                        <td>{{__('monster.type')}}</td>
+                        <td>{{__('monster.amount')}}</td>
                     </tr>
                 </tfoot>
             </table>

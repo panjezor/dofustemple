@@ -11,7 +11,7 @@
         @if(isset($title))
             <title>{{ $title }}</title>
         @else
-            <title>{{ config('app.name', 'Laravel') }}</title>
+            <title>{{ config('app.name') }}</title>
         @endif
 
     <!-- Scripts and styling-->
@@ -62,18 +62,23 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav nav-pills nav-justified navbar-nav m-auto">
-                            <li><a class="nav-item nav-link border-1 m-1" href="/daily">daily quest reminder z checkboxami - 3 w
+                            <li><a class="nav-item nav-link border-1 m-1" href="/daily">daily quest reminder z
+                                    checkboxami - 3 w
                                     koalaku, almanax, keruby, sufokia</a></li>
                             <li>
-                                <a class="nav-item nav-link border-1 m-1" href="/monsters/lists">Monster Soul Manager</a>
+                                <a class="nav-item nav-link border-1 m-1" href="/monsters/lists">Monster Soul
+                                    Manager</a>
                             </li>
                             <li>
-                                <a class="nav-item nav-link border-1 m-1" href="/events">dashboard do eventow + bonusy z almanaxa</a>
+                                <a class="nav-item nav-link border-1 m-1" href="/events">dashboard do eventow + bonusy z
+                                    almanaxa</a>
                             </li>
                             <li>
-                                <a class="nav-item nav-link border-1 m-1" href="#">portale do zrobienia na dashboardzie</a>
+                                <a class="nav-item nav-link border-1 m-1" href="#">portale do zrobienia na
+                                    dashboardzie</a>
                             </li>
-                            <li><a class="nav-item nav-link border-1 m-1" href="/links">zbior przydatnych linkow - dofuspourlesnoobs,
+                            <li><a class="nav-item nav-link border-1 m-1" href="/links">zbior przydatnych linkow -
+                                    dofuspourlesnoobs,
                                     treasure hunt, dofuswiki</a></li>
                             <li><a class="nav-item nav-link border-1 m-1" href="/links">czat/forum</a></li>
                             <li><a class="nav-item nav-link border-1 m-1" href="/drop">Kalkulator dropow</a></li>
@@ -85,13 +90,11 @@
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('main.login') }}</a>
                                 </li>
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    </li>
-                                @endif
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('main.register') }}</a>
+                                </li>
                             @else
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -103,10 +106,21 @@
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                            {{ __('main.logout') }}
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
+                                            @csrf
+
+                                        </form>
+                                        <a class="dropdown-item" href="{{ route('profile') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('profile-form').submit();">
+                                            {{ __('main.profile') }}
+                                        </a>
+
+                                        <form id="profile-form" action="{{ route('profile') }}" method="POST"
                                               style="display: none;">
                                             @csrf
 
@@ -126,7 +140,41 @@
                     </div>
                 </div>
             </main>
-            <footer>{{__('footer.contactme')}}</footer>
+            <!-- Footer -->
+            <footer class="page-footer font-small pt-4">
+
+                <!-- Footer Links -->
+                <div class="container-fluid text-center text-md-left">
+
+                    <!-- Grid row -->
+                    <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-md-6 mt-md-0 mt-3">
+
+                            <!-- Content -->
+                            <h5 class="text-uppercase">Footer Content</h5>
+                            <p>Here you can use rows and columns to organize your footer content.</p>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <hr class="clearfix w-100 d-md-none pb-3">
+
+                    </div>
+                    <!-- Grid row -->
+
+                </div>
+                <!-- Footer Links -->
+
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                    <a href="https://dofus-temple.com"> Dofus-Temple.com</a>
+                </div>
+                <!-- Copyright -->
+
+            </footer>
+            <!-- Footer -->
         </div>
 
     </body>

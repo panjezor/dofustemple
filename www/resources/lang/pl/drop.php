@@ -7,6 +7,6 @@ return [
     'monsters' => 'Potwory',
     'item-drop-rate' => 'Szansa na drop (w procentach)',
     'prospecting-lock' => 'Prospecting lock',
-    'monster-count' => 'Ilosc Potworow'
-
+    'monster-count' => 'Ilosc Potworow',
+    'result' => 'Wynik',
 ];

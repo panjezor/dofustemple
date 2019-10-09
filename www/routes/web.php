@@ -12,11 +12,11 @@
 */
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use Orangehill\Iseed\Iseed;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/seed/{table}', function ($table) {
     $seed = new Iseed();
@@ -25,16 +25,13 @@ Route::get('/seed/{table}', function ($table) {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/logout', function () {
-        Auth::logout();
-        return redirect('/');
-    });
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::prefix('/drop')->group(function () {
         Route::get('/', 'DropController@index');
         Route::get('/addteam', 'DropController@index');
     });
+    Route::post('/profile', 'HomeController@profile')->name('profile'); // TODO: needs doing
 
 
     Route::prefix('/almanax')->group(function () {
