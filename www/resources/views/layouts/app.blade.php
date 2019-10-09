@@ -126,6 +126,7 @@
                     </div>
                 </div>
             </main>
+            <footer>{{__('footer.contactme')}}</footer>
         </div>
 
     </body>
