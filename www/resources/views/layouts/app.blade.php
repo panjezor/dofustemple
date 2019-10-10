@@ -103,7 +103,7 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        <a class="dropdown-item"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             {{ __('main.logout') }}
@@ -114,7 +114,7 @@
                                             @csrf
 
                                         </form>
-                                        <a class="dropdown-item" href="{{ route('profile') }}"
+                                        <a class="dropdown-item"
                                            onclick="event.preventDefault();
                                                      document.getElementById('profile-form').submit();">
                                             {{ __('main.profile') }}
@@ -132,7 +132,6 @@
                     </div>
                 </div>
             </nav>
-
             <main class="py-4">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
@@ -140,42 +139,20 @@
                     </div>
                 </div>
             </main>
-            <!-- Footer -->
             <footer class="page-footer font-small pt-4">
-
-                <!-- Footer Links -->
                 <div class="container-fluid text-center text-md-left">
-
-                    <!-- Grid row -->
                     <div class="row">
-
-                        <!-- Grid column -->
                         <div class="col-md-6 mt-md-0 mt-3">
-
-                            <!-- Content -->
-                            <h5 class="text-uppercase">Footer Content</h5>
-                            <p>Here you can use rows and columns to organize your footer content.</p>
-
+                            <h5 class="text-uppercase">{{__('main.development')}}</h5>
+                            <p></p>
                         </div>
-                        <!-- Grid column -->
-
                         <hr class="clearfix w-100 d-md-none pb-3">
-
                     </div>
-                    <!-- Grid row -->
-
                 </div>
-                <!-- Footer Links -->
-
-                <!-- Copyright -->
                 <div class="footer-copyright text-center py-3">© 2019 Copyright:
                     <a href="https://dofus-temple.com"> Dofus-Temple.com</a>
                 </div>
-                <!-- Copyright -->
-
             </footer>
-            <!-- Footer -->
         </div>
-
     </body>
 </html>

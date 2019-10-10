@@ -8,4 +8,5 @@ return [
     'register' => 'Register',
     'contact-me' => 'Contact me',
     'profile' => 'Profile',
+    'development' => 'Development'
 ];
