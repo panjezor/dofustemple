@@ -16,7 +16,7 @@
                         <tr>
                             <td>{{$monster->monster_name}}</td>
                             <input type="hidden" id="monster_id" value="{{$monster->id}}">
-                            <td>{{__('monster.'.$monster->type}}</td>
+                            <td>{{__('monster.'.$monster->type)}}</td>
                             <td>
                                 <button type="button"
                                         onclick="subtractMonster({{$monster->id}})">
