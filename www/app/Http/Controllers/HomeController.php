@@ -21,4 +21,10 @@ class HomeController extends Controller
     {
         return 'not there yet';
     }
+
+    public function todolist()
+    {
+
+        return view('to-do', ['title' => 'To-Do list']);
+    }
 }

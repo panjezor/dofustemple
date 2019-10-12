@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOldMonstersTable extends Migration
+class CreateTodosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateOldMonstersTable extends Migration
      */
     public function up()
     {
-        Schema::create('old_monsters', function (Blueprint $table) {
+        Schema::create('todos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateOldMonstersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('old_monsters');
+        Schema::dropIfExists('todos');
     }
 }
