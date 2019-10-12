@@ -4,6 +4,6 @@ return [
     'type' => 'Type',
     'amount' => 'Amount',
     '0' => 'Normal',
-    '1' => 'Arch',
+    '1' => 'Archmonster',
     '2' => 'Boss',
 ];
