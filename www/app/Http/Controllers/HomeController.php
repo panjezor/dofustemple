@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Todo;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -14,7 +18,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', ['title'=>'Dashboard']);
+        return view('home', ['title' => 'Dashboard']);
     }
 
     public function profile()
@@ -22,9 +26,11 @@ class HomeController extends Controller
         return 'not there yet';
     }
 
-    public function todolist()
+    public function toDoList(Request $request)
     {
-
+        if ($request->description && $request->title) {
+            Todo::firstOrCreate(['description' => $request->description], ['title' => $request->title, 'created_by' => Auth::user()->id]);
+        }
         return view('to-do', ['title' => 'To-Do list']);
     }
 }

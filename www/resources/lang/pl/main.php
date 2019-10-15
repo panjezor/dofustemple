@@ -8,5 +8,7 @@ return [
     'register' => 'Rejestracja',
     'contact-me' => 'Kontakt',
     'profile' => 'Profil',
-    'development' => 'Rozwoj strony'
+    'development' => 'Rozwoj strony',
+    'future-features' => 'Nadchodzace funkcje',
+    'added-by' => 'Dodane przez'
 ];

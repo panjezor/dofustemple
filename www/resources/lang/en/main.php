@@ -8,5 +8,7 @@ return [
     'register' => 'Register',
     'contact-me' => 'Contact me',
     'profile' => 'Profile',
-    'development' => 'Development'
+    'development' => 'Development',
+    'future-features' => 'Future features',
+    'added-by' => 'Added by'
 ];

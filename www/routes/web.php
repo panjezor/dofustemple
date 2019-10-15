@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'DropController@index');
         Route::get('/addteam', 'DropController@index');
     });
-    Route::get('/to-do', 'HomeController@todolist')->name('to-do');
+    Route::get('/to-do', 'HomeController@toDoList')->name('to-do');
 
     Route::post('/profile', 'HomeController@profile')->name('profile'); // TODO: needs doing
 
