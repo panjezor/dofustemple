@@ -11,7 +11,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php($monsters = App\Models\Monster::all())
+
+                    @php($monsters = App\Models\Monster::where('version', $list->version)->get())
                     @foreach($monsters as $monster)
                         <tr>
                             <td>{{$monster->monster_name}}</td>
