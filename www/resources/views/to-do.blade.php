@@ -3,7 +3,9 @@
 @section('content')
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header">{{__('main.future-features')}}</div>
+            <div class="card-header">
+                {{__('main.future-features')}}
+            </div>
             <div class="card-body">
                 <ol>
                     @php($todos = App\Models\Todo::all())
