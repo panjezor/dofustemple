@@ -15,6 +15,7 @@
                             <th>{{__('main.name')}}</th>
                             <th>{{__('main.users')}}</th>
                             <th>{{__('main.characters')}}</th>
+                            <th>{{__('monster.version')}}</th>
                             <th>{{__('main.delete')}}</th>
                         </tr>
 
@@ -36,19 +37,25 @@
                                         @endif
                                     @endforeach </td>
                                 <td>{{$list->characters_number}}</td>
-                                <td><a href="lists?deleteList={{$list->id}}" class="close" aria-label="Close">
+                                <td>
+                                    {{$list->version}}
+                                </td>
+                                <td>
+                                    <a href="lists?deleteList={{$list->id}}" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
-                                    </a></td>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Users</th>
-                            <th>Characters</th>
-                            <th>Delete</th>
+                            <th>{{__('main.name')}}</th>
+                            <th>{{__('main.users')}}</th>
+                            <th>{{__('main.characters')}}</th>
+                            <th>{{__('monster.version')}}</th>
+                            <th>{{__('main.delete')}}</th>
                         </tr>
                     </tfoot>
                 </table>

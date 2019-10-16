@@ -42,15 +42,20 @@
                     </tr>
                 </tfoot>
             </table>
-
-
         </div>
     </div>
     <div class="col-md-3">
         <div class="card">
-            <ol id="userstable">@foreach($list->users as $user)
-                    <li>{{$user->name}}</li>
-                @endforeach</ol>
+            <div class="card-header">{{__('main.users')}}</div>
+            <div class="card-body">
+                <h4>
+                    <ol id="userstable">
+                        @foreach($list->users as $user)
+                            <li>{{$user->name}}</li>
+                        @endforeach
+                    </ol>
+                </h4>
+            </div>
         </div>
     </div>
 
