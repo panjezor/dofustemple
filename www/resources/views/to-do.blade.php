@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="col-md-4">
+    <div class="col-lg-6 col-sm-8">
         <div class="card">
             <div class="card-header">
                 {{__('main.future-features')}}
@@ -20,28 +20,21 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-xl-2 col-lg-3 col-sm-4">
         <form method="get" action="">
             <div class="card ">
                 <div class="card-header">
-                    Create a new list
+                    {{__('todo.suggest-new-feature')}}
                 </div>
                 <div class="form-group p-2">
-                    <label for="inputListName">List name</label>
-                    <input type="text" class="form-control" id="inputListName" name="inputListName"
-                           aria-describedby="listHelp"
-                           placeholder="Enter new list name">
-                    <small id="listHelp" class="form-text text-muted">Short name for you to call it.</small>
+                    <label for="inputFeatureTitle">{{__('todo.feature-title')}}</label>
+                    <input class="form-control" id="inputFeatureTitle" name="title">
                 </div>
                 <div class="form-group p-2">
-                    <label for="inputCharCount">Amount of characters</label>
-                    <input type="number" class="form-control" id="inputCharCount" name="inputCharCount"
-                           aria-describedby="charCount"
-                           placeholder="Enter amount of characters" min="1" max="24">
-                    <small id="charCount" class="form-text text-muted">Specify the number of characters you collect
-                        these souls for.</small>
+                    <label for="inputFeatureDescription">{{__('todo.feature-desc')}}</label>
+                    <input class="form-control" id="inputFeatureDescription" name="description">
                 </div>
-                <button type="submit" class="btn btn-success">Create</button>
+                <button type="submit" class="btn btn-success">{{__('main.submit')}}</button>
             </div>
         </form>
     </div>
