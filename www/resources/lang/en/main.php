@@ -10,5 +10,9 @@ return [
     'profile' => 'Profile',
     'development' => 'Development',
     'future-features' => 'Future features',
-    'added-by' => 'Added by'
+    'added-by' => 'Added by',
+    'name' => 'Name',
+    'users' => 'Users',
+    'characters' => 'Characters',
+    'delete' => 'Delete',
 ];

@@ -10,5 +10,9 @@ return [
     'profile' => 'Profil',
     'development' => 'Rozwoj strony',
     'future-features' => 'Nadchodzace funkcje',
-    'added-by' => 'Dodane przez'
+    'added-by' => 'Dodane przez',
+    'name' => 'Nazwa',
+    'users' => 'Uzytkownicy',
+    'characters' => 'Postaci',
+    'delete' => 'Usun',
 ];
