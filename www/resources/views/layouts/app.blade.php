@@ -62,13 +62,11 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav nav-pills nav-justified navbar-nav m-auto">
-
                             <li>
-                                <a class="nav-item nav-link border-1 m-1" href="/monsters/lists">Monster Soul
+                                <a class="nav-item nav-link m-2" href="/monsters/lists">Monster Soul
                                     Manager</a>
                             </li>
-                            <li><a class="nav-item nav-link border-1 m-1" href="/drop">Kalkulator dropow</a></li>
-
+                            <li><a class="nav-item nav-link m-2" href="/drop">Kalkulator dropow</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
