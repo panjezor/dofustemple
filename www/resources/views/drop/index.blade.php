@@ -48,10 +48,9 @@
                                max="400"
                                value="100">
                         <label for="monster-count">{{__('drop.monster-count')}}</label>
-                        <input id="monster-count" class="form-control col-lg-4 col-md-6 col-12" type="number" min="1"
-                               max="8"
-                               value="1">
-                        <button class="btn btn-primary">{{__('main.calculate')}}</button>
+                        {{--                        <input id="monster-count" class="form-control col-lg-4 col-md-6 col-12" type="number" min="1"--}}
+                        {{--                               max="8"--}}
+                        {{--                               value="1">--}}
                     </div>
                 </div>
             </div>
@@ -61,9 +60,9 @@
                         {{__('drop.result')}}
                     </div>
                     <div class="card-body">
-                        <div id="result"></div>
+                        <div>{{__('drop.chance-explanation')}} <span id="result"></span></div>
                         <button type="submit" class="btn btn-success"
-                                onclick="countChance()">{{__('main.submit')}}</button>
+                                onclick="countChance()">{{__('main.calculate')}}</button>
                     </div>
                 </div>
             </div>
