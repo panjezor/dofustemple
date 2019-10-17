@@ -29,5 +29,5 @@ function countChance() {
         totalChance *= 1 - (element * dropRate);
     });
     let pt = 1 - totalChance;
-    console.log(pt.toFixed(4) * 100 + '%');
+    $('#result').html(pt.toFixed(4) * 100 + '%');
 }

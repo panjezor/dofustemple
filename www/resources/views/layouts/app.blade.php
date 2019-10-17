@@ -62,25 +62,11 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav nav-pills nav-justified navbar-nav m-auto">
-                            <li><a class="nav-item nav-link border-1 m-1" href="/daily">daily quest reminder z
-                                    checkboxami - 3 w
-                                    koalaku, almanax, keruby, sufokia</a></li>
+
                             <li>
                                 <a class="nav-item nav-link border-1 m-1" href="/monsters/lists">Monster Soul
                                     Manager</a>
                             </li>
-                            <li>
-                                <a class="nav-item nav-link border-1 m-1" href="/events">dashboard do eventow + bonusy z
-                                    almanaxa</a>
-                            </li>
-                            <li>
-                                <a class="nav-item nav-link border-1 m-1" href="#">portale do zrobienia na
-                                    dashboardzie</a>
-                            </li>
-                            <li><a class="nav-item nav-link border-1 m-1" href="/links">zbior przydatnych linkow -
-                                    dofuspourlesnoobs,
-                                    treasure hunt, dofuswiki</a></li>
-                            <li><a class="nav-item nav-link border-1 m-1" href="/links">czat/forum</a></li>
                             <li><a class="nav-item nav-link border-1 m-1" href="/drop">Kalkulator dropow</a></li>
 
                         </ul>

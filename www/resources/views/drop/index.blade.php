@@ -60,7 +60,11 @@
                     <div class="card-header">
                         {{__('drop.result')}}
                     </div>
-                    <div class="card-body"></div>
+                    <div class="card-body">
+                        <div id="result"></div>
+                        <button type="submit" class="btn btn-success"
+                                onclick="countChance()">{{__('main.submit')}}</button>
+                    </div>
                 </div>
             </div>
         </div>
