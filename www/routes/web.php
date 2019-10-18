@@ -48,8 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/arch', 'MonsterController@showArch');
 
         Route::prefix('/lists')->group(function () {
-            Route::get('/admin', 'MonsterController@showAllLists');
-            Route::get('/', 'MonsterController@showMyLists');
+            Route::get('/', 'MonsterController@showLists');
 
             Route::prefix('/{list}')->group(function () {
 

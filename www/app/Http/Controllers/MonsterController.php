@@ -62,7 +62,7 @@ class MonsterController extends Controller
         return view('ochrehelper', ['monsters' => $monsters]);
     }
 
-    public function showMyLists(Request $request) // this should go into a facade
+    public function showLists(Request $request) // this should go into a facade
     {
         $user = Auth::user();
         if ($name = $request->input('inputListName')) {
@@ -89,21 +89,12 @@ class MonsterController extends Controller
         }
         $user = User::find($user->id); // old instance of User still holds the relationships, so needs to be initialized again to refresh it.
         $lists = $user->lists;
+        if ($user->isDev()) {
+            $lists = MonsterList::all();
+        }
         return view('monsters.lists', ['lists' => $lists]);
 
         //sidenote for future development -> assign monsters to dungeons, so people would see if they can run a dun to capture a midmonster
-    }
-
-    public
-    function showAllLists()
-    {
-
-        $user = Auth::user();
-        if ($user->id !== 1 && $user->id !== 2) { // if user is not admin <- needs changing when i get to
-            return abort(403);
-        }
-
-        return view('monsters.lists', ['lists' => MonsterList::all()->get()]);
     }
 
     public

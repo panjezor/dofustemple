@@ -3,17 +3,16 @@
 @section('content')
     <div class="col-xl-2 col-lg-3 col-md-4 col-12">
         <div class="card shadow mb-5 rounded">
-            <div class="card-header">Dashboard</div>
+            <div class="card-header">{{__('main.dashboard-title')}}</div>
             <div class="card-body">
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                 @endif
+                <p></p>
+                {!! __('main.dashboard', ['users'=>App\Models\User::all()->count(), 'name'=>Illuminate\Support\Facades\Auth::user()->name])!!}
 
-                <p>Have a nice day!</p>
-                <p>You are one of {{app\Models\User::all()->count()}} users registered on our website.</p>
-                <p>Feel free to share this tool with your friends</p>
             </div>
         </div>
     </div>
@@ -21,11 +20,11 @@
         <div class="card shadow mb-5 rounded">
             <div class="card-header">Almanax</div>
             <div class="card-body">
-                <table class="table table-striped table-bordered table-bordered-dofus">
+                <table class="table table-striped table-bordered table-bordered-dofus" id="almanaxtable">
                     <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>Offering</th>
+                            <th>{{__('main.date')}}</th>
+                            <th>{{__('main.offering')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,8 +37,8 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Date</th>
-                            <th>Offering</th>
+                            <th>{{__('main.date')}}</th>
+                            <th>{{__('main.offering')}}</th>
                         </tr>
                     </tfoot>
                 </table>
@@ -52,6 +51,35 @@
 @push('scripts')
     <script>
         $().ready(function () {
-            $('table').DataTable();
+            $('#almanaxtable').DataTable(
+                {
+                    "lengthMenu": [7, 14, 28],
+                    "language": {
+                        "decimal": "{{__('datatables.decimal')}}",
+                        "emptyTable": "{{__('datatables.emptyTable')}}",
+                        "info": "{{__('datatables.info',['start'=>'_START_','end'=>'_END_','total'=>'_TOTAL_'])}}",
+                        "infoEmpty": "{{__('datatables.infoEmpty')}}",
+                        "infoFiltered": "{{__('datatables.infoFiltered',['max'=>'_MAX_'])}}",
+                        "infoPostFix": "{{__('datatables.infoPostFix')}}",
+                        "thousands": "{{__('datatables.thousands')}}",
+                        "lengthMenu": "{{__('datatables.lengthMenu',['menu'=>'_MENU_'])}}",
+                        "loadingRecords": "{{__('datatables.loadingRecords')}}",
+                        "processing": "{{__('datatables.processing')}}",
+                        "search": "{{__('datatables.search')}}",
+                        "zeroRecords": "{{__('datatables.zeroRecords')}}",
+                        "paginate": {
+                            "first": "{{__('datatables.first')}}",
+                            "last": "{{__('datatables.last')}}",
+                            "next": "{{__('datatables.next')}}",
+                            "previous": "{{__('datatables.previous')}}"
+                        },
+                        "aria": {
+                            "sortAscending": "{{__('datatables.sortAscending')}}",
+                            "sortDescending": "{{__('datatables.sortDescending')}}",
+                        }
+                    },
+
+                }
+            );
         });</script>
 @endpush

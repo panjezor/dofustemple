@@ -68,14 +68,14 @@
                     <input type="text" class="form-control" id="inputListName" name="inputListName"
                            aria-describedby="listHelp"
                            placeholder="{{__('monster.new-list-name')}}">
-                    <small id="listHelp" class="form-text text-muted">{{__('monster.short-name-desc')}}</small>
+                    <small id="listHelp" class="form-text">{{__('monster.short-name-desc')}}</small>
                 </div>
                 <div class="form-group p-2">
                     <label for="inputCharCount">{{__('monster.amount-of-asc')}}</label>
                     <input type="number" class="form-control" id="inputCharCount" name="inputCharCount"
                            aria-describedby="charCount"
                            placeholder="{{__('monster.enter-amount-of-asc')}}" min="1" max="24">
-                    <small id="charCount" class="form-text text-muted">{{__('monster.amount-of-asc-desc')}}</small>
+                    <small id="charCount" class="form-text">{{__('monster.amount-of-asc-desc')}}</small>
                 </div>
                 <button type="submit" class="btn btn-success">{{__('main.submit')}}</button>
             </div>
