@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use phpDocumentor\Reflection\Types\Integer;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -39,7 +38,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return BelongsToMany
      */
     public function lists()
     {
@@ -56,5 +55,10 @@ class User extends Authenticatable
             }
         });
         return $check;
+    }
+
+    public function isDev()
+    {
+        return $this->id === 1 ? true : false;
     }
 }

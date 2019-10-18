@@ -201,6 +201,11 @@ input[required]:focus + label[placeholder]:before {
     color: #abbf3a;
 }
 
+input.form-control::placeholder, small {
+    color: #abbf3a;
+    opacity: 1;
+}
+
 input[required]:focus + label[placeholder]:before,
 input[required]:valid + label[placeholder]:before {
     transition-duration: .2s;
