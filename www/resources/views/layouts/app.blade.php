@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" prefix="og: http://ogp.me/ns/website#">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/x-icon" href="{{asset('img/dofusfavicon.png')}}"/>
-
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
         @if(isset($title))
             <title>{{ $title }}</title>
         @else
             <title>{{ config('app.name') }}</title>
         @endif
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:title"
+              content="{{ config('app.name') }}">
+        <meta property="og:image"
+              content="https://i.pinimg.com/originals/c3/ab/69/c3ab69355f4fb84c75686803e80fc806.jpg">
+        <meta property="og:url" content="{{$_SERVER['REQUEST_URI']}}"/>
 
-    <!-- Scripts and styling-->
+        <meta property="og:type" content="article">
+        <meta property="og:description"
+              content="Dofus Temple is a web portal for the Dofus players to hlep them in daily tasks.">
+        <link rel="icon" type="image/x-icon" href="{{asset('img/dofusfavicon.png')}}"/>
+
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+        <!-- Scripts and styling-->
         {{--        <script src="{{ asset('js/app.js') }}" defer></script>--}}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
