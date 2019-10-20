@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" prefix="og: http://ogp.me/ns/website#">
     <head>
+
         @if(isset($title))
             <title>{{ $title }}</title>
+            <meta property="og:title"
+                  content="{{ $title }}">
+            <meta property="og:site_name" content="{{ $title }}">
         @else
             <title>{{ config('app.name') }}</title>
+            <meta property=" og:title"
+                  content="{{ config('app.name') }}">
+            <meta property="og:site_name" content="{{ config('app.name') }}">
         @endif
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:title"
-              content="{{ config('app.name') }}">
+        <meta property="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+        <meta property="og:site_name" content="Dofus-Temple">
         <meta property="og:image"
               content="https://i.pinimg.com/originals/c3/ab/69/c3ab69355f4fb84c75686803e80fc806.jpg">
         <meta property="og:url" content="{{$_SERVER['REQUEST_URI']}}"/>
 
-        <meta property="og:type" content="article">
+        <meta property="og:type" content="website">
         <meta property="og:description"
-              content="Dofus Temple is a web portal for the Dofus players to hlep them in daily tasks.">
+              content="Dofus Temple is a web portal for the members of Dofus Society to help them in daily tasks. Players, arise!">
+        <meta property="twitter:site" content="@dofustemple">
+        <meta charset="utf-8">
+        <meta name="keywords"
+              content="dofus, dofus temple, mmo, mmorpg, free mmorpg, free online mmorpg, video game, video game rental, video game system, free video game, online game, multiplayer game, free multiplayer game, dofus community, comics, pc game, pc game cheat, game, free game, online game, toy game, addictive game, addicting game">
+        <meta name="Identifier-URL" content="dofus-temple.com">
+        <meta property="fb:admins" content="filip.cieslik">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="{{asset('img/dofusfavicon.png')}}"/>
-
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
         <!-- Scripts and styling-->
-        {{--        <script src="{{ asset('js/app.js') }}" defer></script>--}}
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
               crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.min.css') }}"/>
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+        @stack('styles')
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                 crossorigin="anonymous"></script>
@@ -45,19 +61,16 @@
         <script type="text/javascript" src="{{ asset('js/datatables2.min.js') }}" defer></script>
 
 
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.min.css') }}"/>
-        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-
         @stack('scripts')
-        @stack('styles')
 
 
     </head>
     <body>
         <div id="app">
+            <span style="display: none">Dofus Temple is a web portal for the members of Dofus Society to help them in daily tasks. Players, arise!</span>
             <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
                 <div class="container-fluid" id="navbar">
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ route('home') }}">
                         <img
                             src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Dofus_logo.png/220px-Dofus_logo.png"
                             width="160px" height="100px">
@@ -72,10 +85,10 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="nav nav-pills nav-justified navbar-nav m-auto">
                             <li>
-                                <a class="nav-item nav-link m-2" href="/monsters/lists">Monster Soul
-                                    Manager</a>
+                                <a class="nav-item nav-link m-2"
+                                   href="/monsters/lists">{{__('main.monster-soul-manager')}}</a>
                             </li>
-                            <li><a class="nav-item nav-link m-2" href="/drop">Kalkulator dropow</a></li>
+                            <li><a class="nav-item nav-link m-2" href="/drop">{{__('main.drop-calculator')}}</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->

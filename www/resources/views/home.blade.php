@@ -10,9 +10,13 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <p></p>
-                {!! __('main.dashboard', ['users'=>App\Models\User::all()->count(), 'name'=>Illuminate\Support\Facades\Auth::user()->name])!!}
-
+                <p>
+                    @guest
+                        {!! __('main.dashboard-guest') !!}
+                    @else
+                        {!! __('main.dashboard-user', ['users'=>App\Models\User::all()->count(), 'name'=>Illuminate\Support\Facades\Auth::user()->name])!!}
+                    @endguest
+                </p>
             </div>
         </div>
     </div>

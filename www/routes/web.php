@@ -23,10 +23,10 @@ Route::get('/seed/{table}', function ($table) {
     $seed->generateSeed($table);
     return 'true';
 });
-
+Route::get('/', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/', 'HomeController@index')->name('home');
+
     Route::prefix('/drop')->group(function () {
         Route::get('/', 'DropController@index');
         Route::get('/addteam', 'DropController@index');

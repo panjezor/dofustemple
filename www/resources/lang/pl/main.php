@@ -22,10 +22,14 @@ return [
     'remember-me' => 'Zapomietaj mnie',
     'forgot-your-password' => 'Zapomniales hasla?',
     'dashboard-title' => 'Panel glowny',
-    'dashboard' => '<p>Milego dnia, :name!</p>
+    'dashboard-user' => '<p>Milego dnia, :name!</p>
                 <p>Jestes jednym z  :users uzytkownikow zarejestrowanych na naszej stronie</p>
+                <p>Smialo mozesz dzielic sie ze znajomymi narzedziami zamieszczonymi tutaj.</p>',
+    'dashboard-guest' => '<p>Milego dnia!</p>
                 <p>Smialo mozesz dzielic sie ze znajomymi narzedziami zamieszczonymi tutaj.</p>',
     'date' => 'Data',
     'offering' => 'Ofiara',
+    'monster-soul-manager' => 'Zarzadzanie soulami',
+    'drop-calculator' => 'Kalkulator dropow',
 
 ];

@@ -22,10 +22,14 @@ return [
     'remember-me' => 'Remember me',
     'forgot-your-password' => 'Forgot your password?',
     'dashboard-title' => 'Dashboard',
-    'dashboard' => '<p>Have a nice day, :name!</p>
+    'dashboard-user' => '<p>Have a nice day, :name!</p>
                 <p>You are one of :users users registered on our website.</p>
                 <p>Feel free to share this tool with your friends</p>',
-    'date' => 'Data',
-    'offering' => 'Ofiara',
+    'dashboard-guest' => '<p>Have a nice day!</p>
+                                <p>Feel free to share this tool with your friends</p>',
+    'date' => 'Date',
+    'offering' => 'Offering',
+    'monster-soul-manager' => 'Monster Soul Manager',
+    'drop-calculator' => 'Drop Calculator',
 
 ];

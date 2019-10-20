@@ -16,13 +16,17 @@ class Controller extends BaseController
     {
         $this->middleware(function ($request, $next) {
             $user = Auth::user();
-            if ($user->locale) {
-                app()->setLocale($user->locale);
+            if ($user) {
+                if ($user->locale) {
+                    app()->setLocale($user->locale);
+                } else {
+                    $locale = substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
+                    $user->locale = $locale; // if someone has better
+                    $user->save();
+                    app()->setLocale($locale);
+                }
             } else {
-                $locale = substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
-                $user->locale = $locale; // if someone has better
-                $user->save();
-                app()->setLocale($locale);
+                app()->setLocale(substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2));
             }
             return $next($request);
         });
