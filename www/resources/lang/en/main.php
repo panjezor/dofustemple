@@ -19,6 +19,7 @@ return [
     'e-mail-address' => 'E-mail address',
     'password-placeholder' => 'Enter your password here',
     'password' => 'Password',
+    'confirm-password' => 'Confirm your password',
     'remember-me' => 'Remember me',
     'forgot-your-password' => 'Forgot your password?',
     'dashboard-title' => 'Dashboard',

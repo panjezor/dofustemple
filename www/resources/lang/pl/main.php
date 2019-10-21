@@ -19,6 +19,7 @@ return [
     'e-mail-address' => 'Adres e-mail',
     'password-placeholder' => 'Wpisz swoje haslo',
     'password' => 'Haslo',
+    'confirm-password' => 'Potwierdz swoj haslo',
     'remember-me' => 'Zapomietaj mnie',
     'forgot-your-password' => 'Zapomniales hasla?',
     'dashboard-title' => 'Panel glowny',
