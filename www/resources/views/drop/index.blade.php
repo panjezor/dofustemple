@@ -40,13 +40,13 @@
                     </div>
                     <div id="monster-pp" class="card-body form-group">
                         <label for="monster-drop">{{__('drop.item-drop-rate')}}</label>
-                        <input id="monster-drop" class="form-control col-lg-4 col-md-6 col-12" type="number" min="0"
+                        <input id="monster-drop" class="form-control col-lg-4 col-md-6 col-12" type="text" min="0"
                                max="100"
-                               value="0">
+                               value="0" pattern="[0-9]+[\.\,]?[0-9]*">
                         <label for="monster-lock">{{__('drop.prospecting-lock')}}</label>
-                        <input id="monster-lock" class="form-control col-lg-4 col-md-6 col-12" type="number" min="0"
+                        <input id="monster-lock" class="form-control col-lg-4 col-md-6 col-12" type="text" min="0"
                                max="400"
-                               value="100">
+                               value="100" pattern="[0-9]+[\.\,]?[0-9]*">
                         <label for="monster-count">{{__('drop.monster-count')}}</label>
                         {{--                        <input id="monster-count" class="form-control col-lg-4 col-md-6 col-12" type="number" min="1"--}}
                         {{--                               max="8"--}}

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="col-md-8">
+    <div class="col-xl-6 col-md-8">
         <div class="card">
             <div class="card-header">
                 Lists
@@ -64,7 +64,7 @@
 
 
     </div>
-    <div class="col-md-4">
+    <div class="col-xl-3 col-md-4">
         <form method="get" action="">
             <div class="card ">
                 <div class="card-header">

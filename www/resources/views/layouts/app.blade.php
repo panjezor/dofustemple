@@ -68,7 +68,7 @@
     <body>
         <div id="app">
             <span style="display: none">Dofus Temple is a web portal for the members of Dofus Society to help them in daily tasks. Players, arise!</span>
-            <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+            <nav id="nav" class="navbar navbar-expand-lg navbar-light shadow-sm">
                 <div class="container-fluid" id="navbar">
                     <a class="navbar-brand" href="{{ route('home') }}">
                         <img
@@ -138,14 +138,14 @@
                     </div>
                 </div>
             </nav>
-            <main class="py-4">
+            <main id="main" class="py-4">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         @yield('content')
                     </div>
                 </div>
             </main>
-            <footer class="page-footer font-small pt-4">
+            <footer id="footer" class="page-footer footer font-small pt-4">
                 <div class="container-fluid text-center text-md-left">
                     <div class="row">
                         <div class="col-md-6 mt-md-0 mt-3">

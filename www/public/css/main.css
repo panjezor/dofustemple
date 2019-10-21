@@ -1,26 +1,9 @@
 .navbar {
     background-color: darkgreen;
 }
+
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
     color: #17a2b8;
-}
-
-#app {
-    min-height: 100%;
-}
-
-#py-4 {
-    overflow: auto;
-    padding-bottom: 150px; /* this needs to be bigger than footer height*/
-}
-
-.footer {
-    position: relative;
-    margin-top: -150px; /* negative value of footer height */
-    height: 150px;
-    clear: both;
-    padding-top: 20px;
-    color: #fff;
 }
 
 .card-header {
@@ -39,14 +22,13 @@ li a {
     padding: 8px 16px;
     text-decoration: none;
 }
-
 li a:hover {
     background-color: #595;
     color: white;
 }
 
 body {
-    background-image: url('https://vignette.wikia.nocookie.net/krosmoz/images/a/a8/Emerald_Dofus.png/revision/latest?cb=20130709050117');
+    background-image: url("https://vignette.wikia.nocookie.net/krosmoz/images/a/a8/Emerald_Dofus.png/revision/latest?cb=20130709050117");
     background-repeat: no-repeat;
     background-size: 30%;
     background-position: center;
@@ -63,40 +45,42 @@ body {
     background-color: #005400;
     border-radius: 15px;
 }
-
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     background-color: #004400;
     background: linear-gradient(to bottom, #007400 0%, #003400 100%);
     color: #e5ba33 !important;
 }
-
 .dataTables_wrapper .dataTables_paginate .paginate_button:active {
     background-color: #003400;
     background: linear-gradient(to bottom, #005400 0%, #004400 100%);
     color: #e5ba33 !important;
-
-
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
     background-color: #007400;
     background: linear-gradient(to bottom, #008400 0%, #002400 100%);
     color: #e5ba33 !important;
-
-
 }
 
-.form-control, .form-control:focus {
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background-color: #007400;
+    background: linear-gradient(to bottom, #008400 0%, #002400 100%);
+    color: #e5ba33 !important;
+}
+
+select.form-control, input.form-control {
     background-color: #009400;
     color: #e5ba33 !important;
-
-
 }
 
-.table-bordered-dofus, .table-bordered-dofus td, .table-bordered-dofus th {
+.table-bordered-dofus {
     border: 1px solid #003400;
     color: #e5ba33 !important;
+}
 
+.table-bordered-dofus td, .table-bordered-dofus th {
+    border: 1px solid #003400;
+    color: #e5ba33 !important;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -107,7 +91,6 @@ body {
 a {
     color: lightcoral;
 }
-
 a:hover {
     color: darkred;
 }
@@ -120,17 +103,14 @@ a:hover {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
-    padding: 70px 15px 74px 15px;
+    padding: 30px 15px 34px 15px;
     border-top-right-radius: 10px !important;
     border-top-left-radius: 10px !important;
     font-size: 2rem;
 }
-
 .card-header::before {
     content: "";
     display: block;
@@ -141,7 +121,7 @@ a:hover {
     top: 0;
     left: 0;
     background-color: rgba(54, 84, 99, 0.7);
-    background-image: url('https://i.pinimg.com/originals/ce/c1/7a/cec17afbfd1575ef9f4c915548a5c623.jpg');
+    background-image: url("https://i.pinimg.com/originals/ce/c1/7a/cec17afbfd1575ef9f4c915548a5c623.jpg");
     border-top-right-radius: 10px !important;
     border-top-left-radius: 10px !important;
 }
@@ -157,7 +137,6 @@ a:hover {
 .btn-link {
     color: #abbf3a;
 }
-
 .btn-link:hover {
     color: #abbf3a;
 }
@@ -167,55 +146,42 @@ a:hover {
     background-color: #abbf3a;
     border-color: #abbf3a;
 }
-
 .btn-primary:hover {
     color: #fff;
     background-color: #abbf3a;
     border-color: #abbf3a;
 }
-
 .btn-primary.focus, .btn-primary:focus {
-    box-shadow: 0 0 0 .2rem rgba(171, 191, 58, .5);
+    box-shadow: 0 0 0 0.2rem rgba(171, 191, 58, 0.5);
 }
 
-
-input:not([type="checkbox"]) {
+input:not([type=checkbox]) {
     box-sizing: border-box;
     width: 100%;
     height: calc(4em + 1px);
     margin: 0 0 1em;
     padding: 1em;
-    border: 1px solid yellow;
-    background-color: #009400;
-
+    border: 1px solid #ccc;
+    background: #fff;
     resize: none;
     outline: none;
     font-size: 13px;
 }
-
 input[required]:focus {
     border-color: #abbf3a;
 }
-
 input[required]:focus + label[placeholder]:before {
     color: #abbf3a;
-}
-
-input.form-control::placeholder, small {
-    color: #abbf3a;
-    opacity: 1;
-}
-
-input[required]:focus + label[placeholder]:before,
-input[required]:valid + label[placeholder]:before {
-    transition-duration: .2s;
+    transition-duration: 0.2s;
     transform: translate(0, -1.5em) scale(0.9, 0.9);
 }
-
+input[required]:valid + label[placeholder]:before {
+    transition-duration: 0.2s;
+    transform: translate(0, -1.5em) scale(0.9, 0.9);
+}
 input[required]:invalid + label[placeholder][alt]:before {
     content: attr(alt);
 }
-
 input[required] + label[placeholder] {
     display: block;
     pointer-events: none;
@@ -223,7 +189,6 @@ input[required] + label[placeholder] {
     margin-top: calc(-3em - 2px);
     margin-bottom: calc((3em - 1em) + 2px);
 }
-
 input[required] + label[placeholder]:before {
     content: attr(placeholder);
     display: inline-block;
@@ -242,7 +207,15 @@ input[required] + label[placeholder]:before {
     opacity: 0.99;
 }
 
-footer {
+#footer {
     background-color: #003300;
 }
+
+#app {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /*# sourceMappingURL=main.css.map */
