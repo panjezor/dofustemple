@@ -29,5 +29,7 @@ function countChance() {
         totalChance *= 1 - (element * dropRate);
     });
     let pt = 1 - totalChance;
-    $('#result').html(pt.toFixed(4) * 100 + '%');
+    let monstercount = parseInt($('#monster-count').val());
+    let finalchance = 1 - Math.pow(1 - pt, monstercount);
+    $('#result').html(finalchance.toFixed(4) * 100 + '%');
 }

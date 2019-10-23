@@ -48,9 +48,9 @@
                                max="400"
                                value="100" pattern="[0-9]+[\.\,]?[0-9]*">
                         <label for="monster-count">{{__('drop.monster-count')}}</label>
-                        {{--                        <input id="monster-count" class="form-control col-lg-4 col-md-6 col-12" type="number" min="1"--}}
-                        {{--                               max="8"--}}
-                        {{--                               value="1">--}}
+                        <input id="monster-count" class="form-control col-lg-4 col-md-6 col-12" type="number" min="1"
+                               max="8"
+                               value="1">
                     </div>
                 </div>
             </div>
