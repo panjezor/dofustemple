@@ -8,7 +8,7 @@ Otherwise, you can just copy-paste the whole www folder to your server and set u
 ### Upcoming features
 
 - Daily quest reminders
-- Manager for Ochre Dofus quest souls (multiple lists, shareable by different users)
+- Manager for Ochre Dofus quest souls (multiple lists, shareable by different users, split into different versions of the game and categorised by steps and type)
 - Proper dashboard for upcoming events
 - Live chat
 - Full localization of strings
@@ -18,6 +18,8 @@ Otherwise, you can just copy-paste the whole www folder to your server and set u
 - Make proper migration files for the tables (I guess I have to do this one)
 - Customizable profiles
 - Email verification
+- Blade directives or Vue components for html bits of the templates for better code reusability
+
 
 ### Contribution
 
