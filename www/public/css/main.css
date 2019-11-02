@@ -1,98 +1,21 @@
+/*# sourceMappingURL=main.css.map */
 .navbar {
   background-color: darkgreen;
-}
-
-.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-  color: #17a2b8;
-}
-
-.card-header {
-  background-color: #005400;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-li a {
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-li a:hover {
-  background-color: #595;
-  color: white;
-}
-
-body {
-  background-image: url("https://vignette.wikia.nocookie.net/krosmoz/images/a/a8/Emerald_Dofus.png/revision/latest?cb=20130709050117");
-  background-repeat: no-repeat;
-  background-size: 30%;
-  background-position: center;
-  background-color: #2a9055;
-  color: #e5ba33;
-}
-
-.card, table.dataTable tbody tr {
-  background-color: #1a8045;
-}
-
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-  color: #e5ba33 !important;
-  background-color: #005400;
-  border-radius: 15px;
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-  background-color: #004400;
-  background: linear-gradient(to bottom, #007400 0%, #003400 100%);
-  color: #e5ba33 !important;
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button:active {
-  background-color: #003400;
-  background: linear-gradient(to bottom, #005400 0%, #004400 100%);
-  color: #e5ba33 !important;
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-  background-color: #007400;
-  background: linear-gradient(to bottom, #008400 0%, #002400 100%);
-  color: #e5ba33 !important;
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-  background-color: #007400;
-  background: linear-gradient(to bottom, #008400 0%, #002400 100%);
-  color: #e5ba33 !important;
-}
-
-select.form-control, input.form-control {
-  background-color: #009400;
-  color: #e5ba33 !important;
-}
-
-.table-bordered-dofus {
-  border: 1px solid #003400;
-  color: #e5ba33 !important;
-}
-.table-bordered-dofus td, .table-bordered-dofus th {
-  border: 1px solid #003400;
-  color: #e5ba33 !important;
 }
 
 .navbar-light .navbar-nav .nav-link {
   color: rgba(255, 255, 55, 0.5);
   background-color: #004400;
 }
-
-a {
-  color: lightcoral;
+.navbar-light .navbar-nav .nav-link:focus {
+  color: #17a2b8;
 }
-a:hover {
-  color: darkred;
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #17a2b8;
 }
 
 .card-header {
+  background-color: #005400;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -123,6 +46,96 @@ a:hover {
   border-top-left-radius: 10px !important;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #595;
+  color: white;
+}
+
+body {
+  background-image: url("https://vignette.wikia.nocookie.net/krosmoz/images/a/a8/Emerald_Dofus.png/revision/latest?cb=20130709050117");
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: center;
+  background-color: #2a9055;
+  color: #e5ba33;
+}
+
+.card {
+  background-color: #1a8045;
+}
+
+table.dataTable tbody tr {
+  background-color: #1a8045;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: #e5ba33 !important;
+  background-color: #005400;
+  border-radius: 15px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background-color: #004400;
+  background: linear-gradient(to bottom, #007400 0%, #003400 100%);
+  color: #e5ba33 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+  background-color: #003400;
+  background: linear-gradient(to bottom, #005400 0%, #004400 100%);
+  color: #e5ba33 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background-color: #007400;
+  background: linear-gradient(to bottom, #008400 0%, #002400 100%);
+  color: #e5ba33 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background-color: #007400;
+  background: linear-gradient(to bottom, #008400 0%, #002400 100%);
+  color: #e5ba33 !important;
+}
+
+select.form-control {
+  background-color: #009400;
+  color: #e5ba33 !important;
+}
+
+input.form-control {
+  background-color: #009400;
+  color: #e5ba33 !important;
+}
+
+.table-bordered-dofus {
+  border: 1px solid #003400;
+  color: #e5ba33 !important;
+}
+.table-bordered-dofus td {
+  border: 1px solid #003400;
+  color: #e5ba33 !important;
+}
+.table-bordered-dofus th {
+  border: 1px solid #003400;
+  color: #e5ba33 !important;
+}
+
+a {
+  color: lightcoral;
+}
+a:hover {
+  color: darkred;
+}
+
 .title {
   font-size: 30px;
   color: #fff;
@@ -148,7 +161,11 @@ a:hover {
   background-color: #abbf3a;
   border-color: #abbf3a;
 }
-.btn-primary.focus, .btn-primary:focus {
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(171, 191, 58, 0.5);
+}
+
+.btn-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(171, 191, 58, 0.5);
 }
 
@@ -164,6 +181,7 @@ input:not([type=checkbox]) {
   outline: none;
   font-size: 13px;
 }
+
 input[required]:focus {
   border-color: #abbf3a;
 }

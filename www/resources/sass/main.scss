@@ -1,107 +1,50 @@
+$color_1: #17a2b8;
+$color_2: #000;
+$color_3: white;
+$color_4: #e5ba33;
+$color_5: rgba(255, 255, 55, 0.5);
+$color_6: lightcoral;
+$color_7: darkred;
+$color_8: #fff;
+$color_9: #abbf3a;
+$color_10: #898989;
+$background_color_1: darkgreen;
+$background_color_2: #005400;
+$background_color_3: #595;
+$background_color_4: #2a9055;
+$background_color_5: #1a8045;
+$background_color_6: #004400;
+$background_color_7: #003400;
+$background_color_8: #007400;
+$background_color_9: #009400;
+$background_color_10: rgba(54, 84, 99, 0.7);
+$background_color_11: #abbf3a;
+$background_color_12: #003300;
+$border_color_1: #abbf3a;
+
+/*# sourceMappingURL=main.css.map */
 .navbar {
-    background-color: darkgreen;
+    background-color: $background_color_1;
 }
 
-.navbar-light .navbar-nav .nav-link {
-    &:focus, &:hover {
-        color: #17a2b8;
-    }
-}
+.navbar-light {
+    .navbar-nav {
+        .nav-link {
+            &:focus {
+                color: $color_1;
+            }
 
-.card-header {
-    background-color: #005400;
-}
+            &:hover {
+                color: $color_1;
+            }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-li a {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-
-    &:hover {
-        background-color: #595;
-        color: white;
-    }
-}
-
-body {
-    background-image: url('https://vignette.wikia.nocookie.net/krosmoz/images/a/a8/Emerald_Dofus.png/revision/latest?cb=20130709050117');
-    background-repeat: no-repeat;
-    background-size: 30%;
-    background-position: center;
-    background-color: #2a9055;
-    color: #e5ba33;
-}
-
-.card, table.dataTable tbody tr {
-    background-color: #1a8045;
-}
-
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-    color: #e5ba33 !important;
-    background-color: #005400;
-    border-radius: 15px;
-
-    &:hover {
-        background-color: #004400;
-        background: linear-gradient(to bottom, #007400 0%, #003400 100%);
-        color: #e5ba33 !important;
-    }
-
-    &:active {
-        background-color: #003400;
-        background: linear-gradient(to bottom, #005400 0%, #004400 100%);
-        color: #e5ba33 !important;
-    }
-
-    &.current {
-        background-color: #007400;
-        background: linear-gradient(to bottom, #008400 0%, #002400 100%);
-        color: #e5ba33 !important;
-
-        &:hover {
-            background-color: #007400;
-            background: linear-gradient(to bottom, #008400 0%, #002400 100%);
-            color: #e5ba33 !important;
+            color: $color_5;
+            background-color: $background_color_6;
         }
     }
 }
-
-select.form-control, input.form-control {
-    background-color: #009400;
-    color: #e5ba33 !important;
-}
-
-.table-bordered-dofus {
-    border: 1px solid #003400;
-    color: #e5ba33 !important;
-
-    td, th {
-        border: 1px solid #003400;
-        color: #e5ba33 !important;
-    }
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: rgba(255, 255, 55, 0.5);
-    background-color: #004400;
-}
-
-a {
-    color: lightcoral;
-
-    &:hover {
-        color: darkred;
-    }
-}
-
 .card-header {
+    background-color: $background_color_2;
     width: 100%;
     position: relative;
     z-index: 1;
@@ -116,7 +59,6 @@ a {
     border-top-right-radius: 10px !important;
     border-top-left-radius: 10px !important;
     font-size: 2rem;
-
     &::before {
         content: "";
         display: block;
@@ -126,47 +68,153 @@ a {
         height: 100%;
         top: 0;
         left: 0;
-        background-color: rgba(54, 84, 99, 0.7);
-        background-image: url('https://i.pinimg.com/originals/ce/c1/7a/cec17afbfd1575ef9f4c915548a5c623.jpg');
+        background-color: $background_color_10;
+        background-image: url("https://i.pinimg.com/originals/ce/c1/7a/cec17afbfd1575ef9f4c915548a5c623.jpg");
         border-top-right-radius: 10px !important;
         border-top-left-radius: 10px !important;
     }
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    a {
+        display: block;
+        color: $color_2;
+        padding: 8px 16px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $background_color_3;
+            color: $color_3;
+        }
+    }
+}
+
+body {
+    background-image: url("https://vignette.wikia.nocookie.net/krosmoz/images/a/a8/Emerald_Dofus.png/revision/latest?cb=20130709050117");
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: center;
+    background-color: $background_color_4;
+    color: $color_4;
+}
+
+.card {
+    background-color: $background_color_5;
+}
+
+table.dataTable {
+    tbody {
+        tr {
+            background-color: $background_color_5;
+        }
+    }
+}
+
+.dataTables_wrapper {
+    .dataTables_paginate {
+        .paginate_button {
+            color: $color_4 !important;
+            background-color: $background_color_2;
+            border-radius: 15px;
+
+            &:hover {
+                background-color: $background_color_6;
+                background: linear-gradient(to bottom, #007400 0%, #003400 100%);
+                color: $color_4 !important;
+            }
+
+            &:active {
+                background-color: $background_color_7;
+                background: linear-gradient(to bottom, #005400 0%, #004400 100%);
+                color: $color_4 !important;
+            }
+        }
+
+        .paginate_button.current {
+            background-color: $background_color_8;
+            background: linear-gradient(to bottom, #008400 0%, #002400 100%);
+            color: $color_4 !important;
+
+            &:hover {
+                background-color: $background_color_8;
+                background: linear-gradient(to bottom, #008400 0%, #002400 100%);
+                color: $color_4 !important;
+            }
+        }
+    }
+}
+
+select.form-control {
+    background-color: $background_color_9;
+    color: $color_4 !important;
+}
+
+input.form-control {
+    background-color: $background_color_9;
+    color: $color_4 !important;
+}
+
+.table-bordered-dofus {
+    border: 1px solid #003400;
+    color: $color_4 !important;
+
+    td {
+        border: 1px solid #003400;
+        color: $color_4 !important;
+    }
+
+    th {
+        border: 1px solid #003400;
+        color: $color_4 !important;
+    }
+}
+
+a {
+    color: $color_6;
+
+    &:hover {
+        color: $color_7;
+    }
+}
 .title {
     font-size: 30px;
-    color: #fff;
+    color: $color_8;
     text-transform: uppercase;
     line-height: 1.2;
     text-align: center;
 }
-
 .btn-link {
-    color: #abbf3a;
-
+    color: $color_9;
     &:hover {
-        color: #abbf3a;
+        color: $color_9;
     }
 }
-
 .btn-primary {
-    color: #fff;
-    background-color: #abbf3a;
-    border-color: #abbf3a;
-
+    color: $color_8;
+    background-color: $background_color_11;
+    border-color: $border_color_1;
     &:hover {
-        color: #fff;
-        background-color: #abbf3a;
-        border-color: #abbf3a;
+        color: $color_8;
+        background-color: $background_color_11;
+        border-color: $border_color_1;
     }
 
-    &.focus, &:focus {
+    &:focus {
         box-shadow: 0 0 0 0.2rem rgba(171, 191, 58, 0.5);
     }
 }
 
+.btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(171, 191, 58, 0.5);
+}
 input {
-    &:not([type="checkbox"]) {
+    &:not([type=checkbox]) {
         box-sizing: border-box;
         width: 100%;
         height: calc(4em + 1px);
@@ -178,66 +226,72 @@ input {
         outline: none;
         font-size: 13px;
     }
+}
 
-    &[required] {
-        &:focus {
-            border-color: #abbf3a;
+input[required] {
+    &:focus {
+        border-color: $border_color_1;
 
-            + label[placeholder]:before {
-                color: #abbf3a;
-                transition-duration: .2s;
+        & + label[placeholder] {
+            &:before {
+                color: $color_9;
+                transition-duration: 0.2s;
                 transform: translate(0, -1.5em) scale(0.9, 0.9);
             }
         }
+    }
 
-        &:valid + label[placeholder]:before {
-            transition-duration: .2s;
-            transform: translate(0, -1.5em) scale(0.9, 0.9);
-        }
-
-        &:invalid + label[placeholder][alt]:before {
-            content: attr(alt);
-        }
-
-        + label[placeholder] {
-            display: block;
-            pointer-events: none;
-            line-height: 1em;
-            margin-top: calc(-3em - 2px);
-            margin-bottom: calc((3em - 1em) + 2px);
-
+    &:valid {
+        & + label[placeholder] {
             &:before {
-                content: attr(placeholder);
-                display: inline-block;
-                margin: 0 calc(1em + 2px);
-                padding: 0 2px;
-                color: #898989;
-                white-space: nowrap;
-                transition: 0.3s ease-in-out;
-                background-image: linear-gradient(to bottom, #fff, #fff);
-                background-size: 100% 5px;
-                background-repeat: no-repeat;
-                background-position: center;
+                transition-duration: 0.2s;
+                transform: translate(0, -1.5em) scale(0.9, 0.9);
             }
         }
     }
-}
 
+    &:invalid {
+        & + label[placeholder][alt] {
+            &:before {
+                content: attr(alt);
+            }
+        }
+    }
+
+    & + label[placeholder] {
+        display: block;
+        pointer-events: none;
+        line-height: 1em;
+        margin-top: calc(-3em - 2px);
+        margin-bottom: calc((3em - 1em) + 2px);
+
+        &:before {
+            content: attr(placeholder);
+            display: inline-block;
+            margin: 0 calc(1em + 2px);
+            padding: 0 2px;
+            color: $color_10;
+            white-space: nowrap;
+            transition: 0.3s ease-in-out;
+            background-image: linear-gradient(to bottom, #fff, #fff);
+            background-size: 100% 5px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}
 * {
     opacity: 0.99;
 }
-
 #footer {
-    background-color: #003300;
+    background-color: $background_color_12;
 }
-
 #app {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
     justify-content: space-between;
 }
-
 #main {
     flex-grow: 1;
 }
