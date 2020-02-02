@@ -45,6 +45,10 @@ class User extends Authenticatable
         return $this->belongsToMany(MonsterList::class, 'user_lists');
     }
 
+    /**
+     * @param $list_id
+     * @return string
+     */
     public function hasList($list_id)
     {
         $lists = $this->belongsToMany(MonsterList::class, 'user_lists')->get();
@@ -57,8 +61,11 @@ class User extends Authenticatable
         return $check;
     }
 
+    /**
+     * @return bool
+     */
     public function isDev()
     {
-        return $this->id === 1 ? true : false;
+        return $this->id === 1;
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
 class DropController extends Controller
 {
     public function index()
@@ -11,6 +13,6 @@ class DropController extends Controller
 
     public function saveTeam()
     {
-
+        $users = User::whereLocale('pl');
     }
 }
