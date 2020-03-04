@@ -18,6 +18,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+session();
         return view('home', ['title' => 'Dofus Temple']);
     }
 

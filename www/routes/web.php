@@ -13,19 +13,21 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Orangehill\Iseed\Iseed;
 
 Auth::routes();
 
 
-Route::get('/seed/{table}', function ($table) {
-    $seed = new Iseed();
-    $seed->generateSeed($table);
-    return 'true';
-});
 Route::get('/', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
+    Route::prefix('/admin')->group(function () {
+        Route::get('/', 'AdminController@index');// needs doing
+        Route::get('live', 'AdminController@live');// needs doing
+        Route::prefix('/malina')->group(function () {
+            Route::get('/', 'MalinaController@index');// needs doing
+            Route::get('/drafts', 'DraftController@index');// needs doing
+        });
 
+    });
 
     Route::prefix('/drop')->group(function () {
         Route::get('/', 'DropController@index');

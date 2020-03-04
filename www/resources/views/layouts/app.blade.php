@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" prefix="og: http://ogp.me/ns/website#">
     <head>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158972301-1"></script>
+        <script async src="{{asset('js/googletagscript.js')}}"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
 
@@ -15,17 +15,12 @@
             gtag('config', 'UA-158972301-1');
         </script>
 
-        @if(isset($title))
-            <title>{{ $title }}</title>
-            <meta property="og:title"
-                  content="{{ $title }}">
-            <meta property="og:site_name" content="{{ $title }}">
-        @else
-            <title>{{ config('app.name') }}</title>
-            <meta property=" og:title"
-                  content="{{ config('app.name') }}">
-            <meta property="og:site_name" content="{{ config('app.name') }}">
-        @endif
+        @php($title ??= config('app.name'))
+        <title>{{ $title }}</title>
+        <meta property="og:title"
+              content="{{ $title }}">
+        <meta property="og:site_name" content="{{ $title }}">
+
         <meta property="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}">
 
         <meta property="og:site_name" content="Dofus-Temple">

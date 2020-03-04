@@ -31,10 +31,8 @@
                                 </td>
 
                                 <td>@foreach($list->users as $user)
-                                        {{$user->name}}
-                                        @if(!$loop->last)
-                                            ,
-                                        @endif
+                                        {{$user->name.($loop->last ? '' : ', ')}}
+
                                     @endforeach </td>
                                 <td>{{$list->characters_number}}</td>
                                 <td>
