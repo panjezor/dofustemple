@@ -17,7 +17,7 @@ class CreateMonstersTable extends Migration
             $table->bigIncrements('id');
             $table->string('monster_name');
             $table->integer('type');
-            $table->foreign('associate')->references('monsters')->on('id')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('associate')->references('id')->on('monsters')->onUpdate('cascade')->onDelete('set null');
             $table->integer('step');
             $table->integer('version')->default(2);
             $table->timestamps();

@@ -15,8 +15,8 @@ class CreateMonsterOwnershipsTable extends Migration
     {
         Schema::create('monster_ownerships', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreign('monster_list_id')->references('id')->on('monster_lists')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('monster_id')->references('id')->on('monsters')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('monster_list_id')->references('monster_lists')->on('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('monster_id')->references('monsters')->on('id')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
