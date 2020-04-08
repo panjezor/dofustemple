@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -66,6 +67,14 @@ class User extends Authenticatable
      */
     public function isDev()
     {
-        return $this->id === 1;
+        return $this->dev == true;
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function todos()
+    {
+        return $this->hasMany(Todo::class, 'created_by');
     }
 }

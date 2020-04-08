@@ -4,6 +4,7 @@ namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Monster extends Model
 {
@@ -12,84 +13,82 @@ class Monster extends Model
      * types:
      * 0 = normal
      * 1 = arch
-     * 2 = boss
+     * 2 = boss/dungeon
      * souls with no arch will have a type but no associate
+     */
+    const NORMAL = 0;
+    const ARCH = 1;
+    const DUNGEON = 2;
+    /**
+     * @var array
      */
     protected $guarded = [];
 
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
-
+    /**
+     * @return bool
+     */
     public function isNormal()
     {
-        if ($this->type === 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return $this->type === self::NORMAL;
     }
 
+    /**
+     * @return bool
+     */
     public function isArch()
     {
-        if ($this->type === 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return $this->type === self::ARCH;
     }
 
+    /**
+     * @return bool
+     */
     public function isBoss()
     {
-        if ($this->type === 2) {
-            return true;
-        } else {
-            return false;
-        }
+        return $this->type === self::DUNGEON;
     }
 
-    public static function allNormals()
-    {
-        return Monster::where('type', '=', '0');
-    }
 
-    public static function allArchs()
-    {
-        return Monster::where('type', '=', '1')->orderBy('soul_name')->get();
-    }
-
-    public static function allBosses()
-    {
-        return Monster::where('type', '=', '2');
-    }
-
+    /** Return type as a string
+     * @return string
+     * @todo get a locale-based accessor instead of extra function.
+     */
     public function getType()
     {
         switch ($this->type) {
-            case '0':
+            case self::NORMAL:
                 return 'Normal';
                 break;
-            case '1':
+            case self::ARCH:
                 return 'Archsoul';
                 break;
-            case '2':
+            case self::DUNGEON:
                 return 'Boss';
                 break;
         }
+        return 'No data';
     }
 
-    public function otherName($int)
+    /** Return the associated monster
+     * @return BelongsTo
+     */
+    public function assoc()
     {
-        if ($this->associate !== null) {
-            $souls = Monster::find($this->associate);
-
-            return $souls->soul_name;
-        } else {
-            return 'no name';
-        }
+        return $this->belongsTo(Monster::class, 'associate', 'id');
     }
 
-    public function amountOwnedBy($list)
+    /** Count the monsters owned by a given list
+     * @param MonsterList $monsterList
+     * @return integer
+     */
+    public function amountOwnedBy(MonsterList $monsterList)
     {
-        return MonsterOwnership::where('monster_list_id', $list)->where('monster_id', $this->id)->count();
+        return $this->hasMany(MonsterOwnership::class)->where('monster_list_id', $monsterList->id)->count();
+
     }
 }

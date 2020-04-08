@@ -2,20 +2,21 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Almanax extends Model
 {
+    /** Table name
+     * @var string
+     */
     protected $table = "almanax";
+    /** Fillable for mass updates
+     * @var array
+     */
     protected $fillable = ['needed_by', 'offering'];
+    /** Timestamps (set to false for now)
+     * @todo sort the timestamps
+     * @var bool
+     */
     public $timestamps = false;
-
-    public static function pickNext()
-    {
-        $date = Carbon::today();
-        $interval = \Carbon\CarbonInterval::weeks(2);
-        $date->add($interval)->toDateTimeString();
-        return Almanax::whereDate('needed_by', '>', Carbon::yesterday()->toDateString())->whereDate('needed_by', '<', $date->add($interval)->toDateTimeString())->get();
-    }
 }
