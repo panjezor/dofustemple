@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAlmanaxTable extends Migration
 {
@@ -15,6 +15,8 @@ class CreateAlmanaxTable extends Migration
     {
         Schema::create('almanax', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->date('needed_by')->unique();
+            $table->string('offering');
             $table->timestamps();
         });
     }

@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateMonsterListsTable extends Migration
 {
@@ -15,6 +15,12 @@ class CreateMonsterListsTable extends Migration
     {
         Schema::create('monster_lists', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->integer('characters_number');
+            $table->integer('version')->default(2);
+            $table->boolean('normal');
+            $table->boolean('arch');
+            $table->boolean('dungeon');
             $table->timestamps();
         });
     }
