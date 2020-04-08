@@ -68,7 +68,7 @@ class MonsterController extends Controller
         if ($name = $request->input('inputListName')) {
             $char_count = $request->input('inputCharCount');
             $list = new MonsterList();
-            $list->list_name = $name;
+            $list->name = $name;
             $list->characters_number = $char_count;
             $list->save();
 
@@ -84,7 +84,7 @@ class MonsterController extends Controller
                     $list->delete();
                 } else {
                     throw new Exception('The list does not exist, go back and try again or contact administrator.');
-                };
+                }
             }
         }
         $user = User::find($user->id); // old instance of User still holds the relationships, so needs to be initialized again to refresh it.
