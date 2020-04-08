@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(App\Models\Almanax::pickNext() as $almanax)
+                        @foreach((new \App\Repositories\AlmanaxRepository())->pickNext() as $almanax)
                             <tr>
                                 <td>{{$almanax->needed_by}}</td>
                                 <td>{{$almanax->offering}}</td>
