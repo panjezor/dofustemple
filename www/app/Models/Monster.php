@@ -83,12 +83,12 @@ class Monster extends Model
     }
 
     /** Count the monsters owned by a given list
-     * @param MonsterList $monsterList
+     * @param int $monsterList
      * @return integer
      */
-    public function amountOwnedBy(MonsterList $monsterList)
+    public function amountOwnedBy(int $monsterList)
     {
-        return $this->hasMany(MonsterOwnership::class)->where('monster_list_id', $monsterList->id)->count();
+        return $this->hasMany(MonsterOwnership::class)->where('monster_list_id', $monsterList)->count();
 
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Todo;
+use App\Repositories\Interfaces\AlmanaxRepositoryInterface;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,15 +13,26 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
 
+    public $almanaxRepository;
+    public $userRepository;
+
+    public function __construct(AlmanaxRepositoryInterface $almanaxRepository, UserRepositoryInterface $userRepository)
+    {
+        parent::__construct();
+        $this->almanaxRepository = $almanaxRepository;
+        $this->userRepository = $userRepository;
+    }
+
     /**
      * Show the application dashboard.
      *
      * @return Renderable
      */
+
+
     public function index()
     {
-session();
-        return view('home', ['title' => 'Dofus Temple']);
+        return view('home')->withTitle('Dofus Temple')->withAlmanaxes($this->almanaxRepository->pickNext(28))->withUserCount($this->userRepository->all()->count())->withUsername(Auth::user()->name);
     }
 
     public function profile()

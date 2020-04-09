@@ -14,7 +14,7 @@
                     @guest
                         {!! __('main.dashboard-guest') !!}
                     @else
-                        {!! __('main.dashboard-user', ['users'=>App\Models\User::all()->count(), 'name'=>Illuminate\Support\Facades\Auth::user()->name])!!}
+                        {!! __('main.dashboard-user', ['users'=>$userCount, 'name'=>$username])!!}
                     @endguest
                 </p>
             </div>
@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach((new \App\Repositories\AlmanaxRepository())->pickNext() as $almanax)
+                        @foreach($almanaxes as $almanax)
                             <tr>
                                 <td>{{$almanax->needed_by}}</td>
                                 <td>{{$almanax->offering}}</td>

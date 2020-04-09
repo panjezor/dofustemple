@@ -14,6 +14,7 @@ class Controller extends BaseController
 
     public function __construct()
     {
+        //On Controller stage this needs to be done to perform the locale assignment.
         $this->middleware(function ($request, $next) {
             $user = Auth::user();
             if ($user) {

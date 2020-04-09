@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /storage/*.key
+
 vendor
 var
 .idea
@@ -11,3 +12,4 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/www/public/img/mob/

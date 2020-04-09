@@ -45,18 +45,17 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::prefix('/monsters')->group(function () {
-        Route::get('', 'MonsterController@input');
         Route::post('/add', 'MonsterController@addmob');
         Route::get('/arch', 'MonsterController@showArch');
 
         Route::prefix('/lists')->group(function () {
-            Route::get('/', 'MonsterController@showLists');
+            Route::get('/', 'MonsterController@showLists')->name('all-lists');
 
             Route::prefix('/{list}')->group(function () {
 
                 Route::get('/', 'MonsterController@showList');
-                Route::get('/add/{monster}', 'MonsterController@add');
-                Route::get('/subtract/{monster}', 'MonsterController@subtract');
+                Route::get('/add/{monster}', 'MonsterController@add')->name('add-monster');
+                Route::get('/subtract/{monster}', 'MonsterController@subtract')->name('subtract-monster');
             });
         });
     });

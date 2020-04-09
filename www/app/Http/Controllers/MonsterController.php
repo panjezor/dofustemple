@@ -7,13 +7,37 @@ use App\Models\MonsterList;
 use App\Models\MonsterOwnership;
 use App\Models\User;
 use App\Models\UserMonsterList;
+use App\Repositories\Interfaces\MonsterListRepositoryInterface;
+use App\Repositories\Interfaces\MonsterOwnershipRepositoryInterface;
+use App\Repositories\Interfaces\MonsterRepositoryInterface;
+use App\Repositories\Interfaces\UserMonsterListRepositoryInterface;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use Exception;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class MonsterController extends Controller
 {
-    /**
+
+    public $monsterRepository;
+    public $monsterListRepository;
+    public $monsterOwnershipRepository;
+    public $userMonsterListRepository;
+    public $userRepository;
+
+    public function __construct(MonsterRepositoryInterface $monsterRepository, MonsterOwnershipRepositoryInterface $monsterOwnershipRepository, MonsterListRepositoryInterface $monsterListRepository, UserMonsterListRepositoryInterface $userMonsterListRepository, UserRepositoryInterface $userRepository)
+    {
+        parent::__construct();
+        $this->monsterListRepository = $monsterListRepository;
+        $this->monsterRepository = $monsterRepository;
+        $this->monsterOwnershipRepository = $monsterOwnershipRepository;
+        $this->userMonsterListRepository = $userMonsterListRepository;
+        $this->userRepository = $userRepository;
+    }
+
+    /** Adding related archs and normals.
      * @param Request $request
      * @return string
      */
@@ -44,29 +68,39 @@ class MonsterController extends Controller
 
     }
 
+    // input for adding the arch and related monsters.
     public function input()
     {
         return view('monsters.monsterinput', ['title' => 'Moby na ochre']);
     }
 
+    /** Show all archmonsters and relateds.
+     * @return Factory|View
+     */
     public function showArch()
     {
-        $monsters = Monster::allArchs();
-        //dd($monsters);
-        return view('showarchs', ['monsters' => $monsters, 'title' => 'Lista archow']);
+        // we assume that every arch will have an associate
+        $monsters = $this->monsterRepository->archMonsters();
+        return view('monsters.showarchs', ['monsters' => $monsters, 'title' => 'Lista archow']);
     }
 
+    /** Show all monsters for the manager
+     * @return Factory|View
+     */
     public function showAll()
     {
         $monsters = Monster::orderBy('monster_name')->get();
-        return view('ochrehelper', ['monsters' => $monsters]);
+        return view('monsters.ochrehelper', ['monsters' => $monsters]);
     }
 
+    // show all lists
     public function showLists(Request $request) // this should go into a facade
     {
+        //TODO: request validation, splitting adds and deletes to then redirect, fill it and use create instead of "new"
         $user = Auth::user();
         if ($name = $request->input('inputListName')) {
             $char_count = $request->input('inputCharCount');
+
             $list = new MonsterList();
             $list->name = $name;
             $list->characters_number = $char_count;
@@ -97,23 +131,32 @@ class MonsterController extends Controller
         //sidenote for future development -> assign monsters to dungeons, so people would see if they can run a dun to capture a midmonster
     }
 
-    public
-    function add(MonsterList $list, Monster $monster) // check the user to find the current list
+    /** Add new monsters to the list
+     * @param MonsterList $list
+     * @param Monster $monster
+     * @return boolean
+     */
+    public function add(MonsterList $list, Monster $monster)
     {
         $user = Auth::user();
+        // both list and monster should be valid, + then another check if the user can perform the action.
         if ($list && $monster && $user->hasList($list->id)) {
-            $ownership = new MonsterOwnership(['monster_id' => $monster->id]);
-            $list->ownerships()->save($ownership);
+            $list->monsters()->attach($monster->id);
             return 'true';
         }
         return 'false';
     }
 
-    public
-    function subtract(MonsterList $list, Monster $monster) // check the user to find the current list
+    /** Take a monster off a list.
+     * @param MonsterList $list
+     * @param Monster $monster
+     * @return boolean
+     */
+    public function subtract(MonsterList $list, Monster $monster)
     {
         $user = Auth::user();
         if ($list && $monster && $user->hasList($list->id)) {
+            // we cant use detach as it would destroy all the links, instead of just one.
             $ownership = MonsterOwnership::
             where('monster_id', $monster->id)
                 ->where('monster_list_id', $list->id)->first();
@@ -123,8 +166,7 @@ class MonsterController extends Controller
         return 'false';
     }
 
-    public
-    function showList(MonsterList $list)
+    public function showList(MonsterList $list)
     {
         return view('monsters.list', ['list' => $list]);
     }
