@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-
+// TODO: sort all the routes to use the facade, not the strings.
 Route::get('/', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
     Route::prefix('/admin')->group(function () {
