@@ -38,6 +38,7 @@
                                    class="form-control @error('password') is-invalid @enderror" name="password"
                                    required autocomplete="current-password">
 
+                            <span style="display: none"><button type="submit"></button> </span>
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

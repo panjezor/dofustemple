@@ -26,7 +26,7 @@
         <meta property="og:site_name" content="Dofus-Temple">
         <meta property="og:image"
               content="https://i.pinimg.com/originals/c3/ab/69/c3ab69355f4fb84c75686803e80fc806.jpg">
-        <meta property="og:url" content="{{$_SERVER['REQUEST_URI']}}"/>
+        <meta property="og:url" content="dofus-temple.com"/>
 
         <meta property="og:type" content="website">
         <meta property="og:description"

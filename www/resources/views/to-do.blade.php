@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group p-2">
                     <label for="inputFeatureDescription">{{__('todo.feature-desc')}}</label>
-                    <input class="form-control" id="inputFeatureDescription" name="description">
+                    <textarea class="form-control" id="inputFeatureDescription" name="description" style="min-height: available"></textarea>
                 </div>
                 <button type="submit" class="btn btn-success">{{__('main.submit')}}</button>
             </div>
