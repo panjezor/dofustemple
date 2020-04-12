@@ -32,7 +32,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home')->withTitle('Dofus Temple')->withAlmanaxes($this->almanaxRepository->pickNext(28))->withUserCount($this->userRepository->all()->count())->withUsername(Auth::user()->name);
+        return view('home')->withTitle('Dofus Temple')->withAlmanaxes($this->almanaxRepository->pickNext(28))->withUserCount($this->userRepository->all()->count())->withUsername(Auth::user()->name ?? '');
     }
 
     public function profile()
