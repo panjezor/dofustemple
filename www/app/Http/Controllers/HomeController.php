@@ -18,7 +18,6 @@ class HomeController extends Controller
 
     public function __construct(AlmanaxRepositoryInterface $almanaxRepository, UserRepositoryInterface $userRepository)
     {
-        parent::__construct();
         $this->almanaxRepository = $almanaxRepository;
         $this->userRepository = $userRepository;
     }

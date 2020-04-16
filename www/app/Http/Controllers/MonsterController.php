@@ -29,7 +29,6 @@ class MonsterController extends Controller
 
     public function __construct(MonsterRepositoryInterface $monsterRepository, MonsterOwnershipRepositoryInterface $monsterOwnershipRepository, MonsterListRepositoryInterface $monsterListRepository, UserMonsterListRepositoryInterface $userMonsterListRepository, UserRepositoryInterface $userRepository)
     {
-        parent::__construct();
         $this->monsterListRepository = $monsterListRepository;
         $this->monsterRepository = $monsterRepository;
         $this->monsterOwnershipRepository = $monsterOwnershipRepository;
