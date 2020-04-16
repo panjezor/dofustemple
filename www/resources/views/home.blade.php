@@ -39,12 +39,6 @@
                             </tr>
                         @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>{{__('main.date')}}</th>
-                            <th>{{__('main.offering')}}</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
