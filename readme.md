@@ -2,25 +2,20 @@
 
 This is a project of a website which will unite all the tools that might be any useful to Dofus players. 
 ### Configuration
-All the data is already there, what you need is a Docker program which will run the files and a php and laravel executables. For the time being everything is set just so the code would be visible, it is not currently intended for anyone else to be used. Minor changes might apply later on after the page launches.
-Otherwise, you can just copy-paste the whole www folder to your server and set up apache/nginx to get proper name.
+For the time being everything is set just so the code would be visible, it is not currently intended for anyone else to be used. Minor changes might apply later on after the page launches.
 
 ### Upcoming features
 
-- Daily quest reminders
+- Daily quest reminders categorised by area, availability, time-consumption, level and rewards.
 - Manager for Ochre Dofus quest souls (multiple lists, shareable by different users, split into different versions of the game and categorised by steps and type)
 - Proper dashboard for upcoming events
-- Live chat
-- Full localization of strings
+- Live chat - used discord for now, might be going for pusher soon.
 - Collection of all useful links
 - User forum
-- Drop calculator for groups
-- Make proper migration files for the tables (I guess I have to do this one)
-- Customizable profiles
+- Drop calculator for groups improvement (putting data into db to recall - this requires monster db)
+- Customizable profiles (next)
 - Email verification
-- Blade directives or Vue components for html bits of the templates for better code reusability
-
 
 ### Contribution
 
-If you really would like to contribute, please message me, as currently I have some sort of idea on how I would like these done and what features they should cover.
+PM me here or on discord 'Pan Jezor#7117'
