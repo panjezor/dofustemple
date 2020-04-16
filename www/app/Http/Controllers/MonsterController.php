@@ -43,27 +43,22 @@ class MonsterController extends Controller
      */
     public function addmob(Request $request)
     {
-
-        $normalname = $request->input('normalname');
-        $archname = $request->input('archname');
-        if ($normalname) {
-            $nmonster = Monster::firstOrNew(['monster_name' => $normalname], ['type' => 0]);//0 - normal, 1 - arch, 2 - boss
-            $nmonster->save();
+        if ($normalname = $request->input('normalname')) {
+            $nmonster = Monster::firstOrCreate(['monster_name' => $normalname], ['type' => Monster::NORMAL]);//0 - normal, 1 - arch, 2 - boss
         }
-        if ($archname) {
-            $amonster = Monster::firstOrNew(['monster_name' => $archname], ['type' => 1]);//0 - normal, 1 - arch, 2 - boss$amonster->save();
-            $nmonster->save() && $amonster->save();
+        if ($archname = $request->input('archname')) {
+            $amonster = Monster::firstOrCreate(['monster_name' => $archname], ['type' => Monster::ARCH]);//0 - normal, 1 - arch, 2 - boss$amonster->save();
         }
-
         if ($normalname && $archname) {
-            $nmonster->associate = $amonster->id;
-            $amonster->associate = $nmonster->id;
+            $nmonster->assoc()->associate($amonster);
+            $amonster->assoc()->associate($nmonster);
 
+
+            if ($nmonster->save() && $amonster->save()) {
+                return 'true';
+            }
+            return 'false';
         }
-        if ($nmonster->save() && $amonster->save()) {
-            return 'true';
-        }
-        return 'false';
 
 
     }
@@ -126,6 +121,7 @@ class MonsterController extends Controller
         if ($user->isDev()) {
             $lists = MonsterList::all();
         }
+
         return view('monsters.lists', ['lists' => $lists]);
 
         //sidenote for future development -> assign monsters to dungeons, so people would see if they can run a dun to capture a midmonster
